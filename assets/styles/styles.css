@@ -461,7 +461,7 @@ tr:nth-child(even) {
   display: flex;
   margin-left: 1em;
   margin-top: 1em;
-  width: 70%;
+  width: 100%;
 }
 
 .quant-unit-total-container > div {
@@ -475,7 +475,7 @@ tr:nth-child(even) {
 }
 
 .quant-unit-total-container > div > input {
-  width: 90%;
+  width: 100%;
   padding-top: 0.3em;
   padding-bottom: 0.3em;
 }
