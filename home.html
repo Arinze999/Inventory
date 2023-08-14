@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="assets\styles\bootstrap-5.0.2-dist\css\bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="assets\styles\styles.css" />
+    <title>Inventory</title>
+  </head>
+  <body>
+    <div class="jumbotron navbar-top my-4">
+      <div class="row pt-4 pb-3">
+        <div class="col-md-3 text-center">
+          <h4>Inventory System</h4>
+        </div>
+        <div class="col-md-6"></div>
+        <div class="col-md-3 d-flex justify-content-center align-items-center">
+          <ul class="nav">
+            <li class="admin"><a href="">Welcome admin</a></li>
+            <li class="log-out"><a href="">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 sb-parent">
+        <ul class="side-bar">
+          <li id="item" class="text-center text-md-start">item</li>
+          <li id="search" class="text-center text-md-start">Search</li>
+          <li id="pchase" class="text-center text-md-start">Purchase</li>
+          <li id="sale" class="text-center text-md-start">Sale</li>
+          <li id="vendor" class="text-center text-md-start">Vendor</li>
+          <li id="record" class="text-center text-md-start">Records</li>
+        </ul>
+      </div>
+      <div class="col-md-10 sc-parent">
+        <div class="select-container">
+          <h5 id="selected-tab">Item Details</h5>
+          <div class="detail-select">
+            <h5 id="tab-indicator">Item</h5> <p id="error">Please fill all required (<span class="rqd">*</span>) fields<i id="error-cancel" class="fa-solid fa-xmark"></i></p>
+            <!-- these are for the record tab -->
+            <div id="history-icon"><i class="fa-solid fa-clock-rotate-left xl"></i></div>
+            <h5 id="purchase-rec">Purchases</h5>
+            <h5 id="sales-rec">Sales</h5> 
+            <h5 id="vendors-rec">Vendors</h5>
+          </div>
+          <div id="tab-display">
+            <div class="item-product-container">
+              <div>
+                <label>Item Number<span class="rqd">*</span></label><br>
+                <input id="serial" type="number" min="0" required>
+              </div>
+              <div>
+                <label>Product ID</label><br>
+                <input type="text" disabled>
+              </div>
+            </div>
+            <div class="name-status-container">
+              <div class="name-container">
+                <label>Item Name<span class="rqd">*</span></label><br>
+                <input id="nomencleture" type="text" required>
+              </div>
+              <div class="status-container">
+                <label >Status</label><br>
+                <select id="statz">
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+              </div>
+            </div>
+            <div class="description-container">
+              <textarea id="describe" rows="4" type="text" placeholder="Description"></textarea>
+            </div>
+            <div class="final-details-container row">
+              <div class="col-lg-3 discount-container">
+               <label>Discount%</label><br>
+               <input id="disc" type="number" min="0" placeholder="0">
+              </div>
+              <div class="col-lg-3">
+                <label>Quantity<span class="rqd">*</span></label><br>
+                <input id="quant" type="number" min="0" required placeholder="0">
+              </div>
+              <div class="col-lg-3">
+                <label>Unit Price<span class="rqd">*</span></label><br>
+                <input id="unip" type="number" min="0" placeholder="0" required>
+              </div>
+              <div class="col-lg-3">
+                <label>Total Stock</label><br>
+                <input type="text" disabled>
+              </div>
+            </div>
+            <div class="buttons-row">
+              <div>
+                <button id="add">Add Item</button>
+              </div>
+              <!-- <div>
+                <button id="update">Update</button>
+              </div> -->
+              <!-- <div>
+                <button id="del">Delete</button>
+              </div> -->
+              <div>
+                <button id="clear">Clear</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="table-container">
+            <table id="search-table">
+              <tr class="header-row">
+                <th class="number">Item#</th>
+                <th class="name">Item Name</th>
+                <th class="status">Status</th>
+                <th class="quant">Quantity</th>
+                <th class="dcount">Discount</th>
+                <th class="unit">Unit Price</th>
+                <th class="des">Description</th>
+              </tr>
+              <!-- <tr class="data-row">
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+              </tr> -->
+            </table>
+          </div>
+
+          <div id="purchase-container">
+              <div class="number-purchase-id-container">
+                <div>
+                  <label>Item Number</label><br>
+                  <input id="p-item-num" type="number"  min="0">
+                </div>
+                <div>
+                  <label>Purchase Date<span class="rqd">*</span></label></label><br>
+                  <input id="p-date" type="date" required>
+                </div>
+                <div>
+                  <label>Purchase ID</label><br>
+                  <input id="p-id" type="text">
+                </div>
+              </div>
+              <div class="name-stock-vendor-container">
+                <div>
+                  <label>Item Name<span class="rqd">*</span></label><br>
+                  <input id="p-name" type="text" required>
+                </div>
+                <div>
+                  <label>Current Stock</label><br>
+                  <input id="p-stock" type="text">
+                </div>
+                <div>
+                  <label>Vendor Name<span class="rqd">*</span></label><br>
+                  <input id="p-vendor" type="text" required>
+                </div>
+              </div>
+              <div class="quant-unit-total-container">
+                <div>
+                  <label>Quantity<span class="rqd">*</span></label>
+                  <input id="p-quant" type="number" min="0" required>
+                </div>
+                <div>
+                  <label>Unit Cost<span class="rqd">*</span></label>
+                  <input id="p-unit" type="number"  min="0" required>
+                </div>
+                <div>
+                  <label>Total Cost</label>
+                  <input id="p-total" type="text">
+                </div>
+              </div>
+              <div class="purchase-buttons-container">
+                <div>
+                  <button id="add-p">Add Purchase</button>
+                </div>
+                <!-- <div>
+                  <button id="update-p">Update</button>
+                </div> -->
+                <div>
+                  <button id="clear-p">Clear</button>
+                </div>
+              </div>
+          </div>
+
+          <div id="sales-container">
+            <div class="number-sale-container">
+                <div>
+                  <label>Item Number<span class="rqd">*</span></label><br>
+                  <input id="sales-num" type="number"  min="0" required>
+                </div>
+                <div>
+                  <label>Sale ID</label><br>
+                  <input id="sale-id" type="text">
+                </div>
+            </div>
+            <div class="name-date-container">
+              <div>
+                <label for="">Item Name</label><br>
+                <input id="sale-name" type="text">
+              </div>
+              <div>
+                <label for="">Sale Date<span class="rqd">*</span></label><br>
+                <input id="sale-date" type="date" required>
+              </div>
+            </div>
+            <div class="sale-second-last-container">
+              <div>
+                <label for="">Total Stock</label><br>
+                <input id="sale-stock" type="text">
+              </div>
+              <div>
+                <label for="">Discount %</label><br>
+                <input id="sale-discount" type="text">
+              </div>
+              <div>
+                <label for="">Quantity<span class="rqd">*</span></label><br>
+                <input id="sale-quantity" type="number" min="0" required>
+              </div>
+              <div>
+                <label for="">Unit Price<span class="rqd">*</span></label><br>
+                <input id="sale-unit-price" type="number" min="0" required>
+              </div>
+              <div>
+                <label for="">Total</label><br>
+                <input id="sale-total" type="text">
+              </div>
+            </div>
+            <div class="sale-buttons-container">
+              <div>
+                <button id="sale-add">Add Sale</button>
+              </div>
+              <!-- <div>
+                <button id="sale-update">Update</button>
+              </div> -->
+              <div>
+                <button id="sale-clear">Clear</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="vendor-container">
+              <div class="full-status-id-container">
+                <div>
+                  <label for="">Full Name<span class="rqd">*</span></label><br>
+                  <input id="vendor-name" type="text" required>
+                </div>
+                <div>
+                  <label >Status</label><br>
+                  <select id="vendor-status">
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="">Vendor ID</label><br>
+                  <input id="vendor-id" type="text">
+                </div>
+              </div>
+              <div class="vendor-contact-container">
+                <div>
+                  <label for="">Phone<span class="rqd">*</span></label><br>
+                  <input id="vendor-phone1" type="text" required>
+                </div>
+                <div>
+                  <label for="">Phone 2</label><br>
+                  <input id="vendor-phone2" type="text">
+                </div>
+                <div>
+                  <label for="">Email</label><br>
+                  <input id="vendor-mail" type="text">
+                </div>
+              </div>
+              <div class="vendor-address-container">
+                <label for="">Address<span class="rqd">*</span></label><br>
+                <input id="vendor-address1" type="text" required><br>
+                <label for="">Address2</label><br>
+                <input id="vendor-address2" type="text"><br>
+                <label for="">City/Street/Town</label><br>
+                <input id="vendor-city" type="text">
+              </div>
+              <div class="vendor-buttons-container">
+                <div>
+                  <button id="vendor-add">Add Vendor</button>
+                </div>
+                <!-- <div>
+                  <button id="vendor-up">Update</button>
+                </div>
+                <div>
+                  <button id="vendor-del">Delete</button>
+                </div> -->
+                <div>
+                  <button id="vendor-clear">Clear</button>
+                </div>
+              </div>
+          </div>
+
+          <div id="records-container">
+              <div id="purchase-table">
+                  <table id="p-main-table">
+                    <tr class="header-row">
+                      <th class="mini">Item#</th>
+                      <th class="medium">Date</th>
+                      <th class="medium">P. ID</th>
+                      <th class="">Item Name</th>
+                      <th class="long-mid">Current Stock</th>
+                      <th class="">Vendor Name</th>
+                      <th class="mini">Quantity</th>
+                      <th class="medium">Unit Price</th>
+                      <th class="medium">Total Cost</th>
+                    </tr>
+                    <!-- <tr class="data-row">
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                    </tr> -->
+                  </table>
+              </div>
+              <div id="sales-table">
+                <table id="s-main-table">
+                  <tr class="header-row">
+                    <th class="mini">Item#</th>
+                    <th class="medium">Sale ID</th>
+                    <th class="very-long">Item Name</th>
+                    <th class="">Date</th>
+                    <th class="">Total Stock</th>
+                    <th class="mini">Discount</th>
+                    <th class="mini">Quantity</th>
+                    <th class="medium">Unit Price</th>
+                    <th class="medium">Total</th>
+                  </tr>
+                  <!-- <tr class="data-row">
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                  </tr> -->
+                </table>
+              </div>
+              <div id="vendors-table">
+                <table id="v-main-table">
+                  <tr class="header-row">
+                    <th class="long">Full Name</th>
+                    <th class="mini">Status</th>
+                    <th class="medium">Vendor ID</th>
+                    <th class="medium">Phone</th>
+                    <th class="medium">Phone 2</th>
+                    <th class="medium">Email</th>
+                    <th class="long">Adress</th>
+                    <th class="long">Address 2</th>
+                    <th class="mini">City</th>
+                  </tr>
+                  <!-- <tr class="data-row">
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                  </tr> -->
+                </table>
+              </div>
+          </div>
+
+    
+
+
+
+        </div>
+    </div>
+    
+    <!-- <div class="pop-up">
+      <div class="message">
+        <p>saved !</p>
+      </div>
+      <div class="img">
+        <img src="assets\jpegs\Green-check-mark-icon-on-transparent-background-PNG.png">
+      </div>
+    </div> -->
+    
+
+    <script src="assets\script\script.js"></script>
+    <script src="https://kit.fontawesome.com/1b0619be22.js" crossorigin="anonymous"></script>
+  </body>
+</html>
