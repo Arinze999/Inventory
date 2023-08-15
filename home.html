@@ -28,7 +28,8 @@
     <div class="row">
       <div class="col-md-2 sb-parent">
         <ul class="side-bar">
-          <li id="item" class="text-center text-md-start">item</li>
+          <li id="dash" class="text-center text-md-start">Dashboard</li>
+          <li id="item" class="text-center text-md-start">Item</li>
           <li id="search" class="text-center text-md-start">Search</li>
           <li id="pchase" class="text-center text-md-start">Purchase</li>
           <li id="sale" class="text-center text-md-start">Sale</li>
@@ -38,16 +39,41 @@
       </div>
       <div class="col-md-10 sc-parent">
         <div class="select-container">
-          <h5 id="selected-tab">Item Details</h5>
+          <h5 id="selected-tab">Dashboard</h5>
           <div class="detail-select">
-            <h5 id="tab-indicator">Item</h5> <p id="error">Please fill all required (<span class="rqd">*</span>) fields<i id="error-cancel" class="fa-solid fa-xmark"></i></p>
+            <h5 id="tab-indicator">summary</h5> <p id="error">Please fill all required (<span class="rqd">*</span>) fields<i id="error-cancel" class="fa-solid fa-xmark"></i></p>
             <!-- these are for the record tab -->
             <div id="history-icon"><i class="fa-solid fa-clock-rotate-left xl"></i></div>
             <h5 id="purchase-rec">Purchases</h5>
             <h5 id="sales-rec">Sales</h5> 
             <h5 id="vendors-rec">Vendors</h5>
           </div>
-          <div id="tab-display">
+
+          <div id="dash-board-container">
+            <ul class="dash-list">
+              <li><h3>Total items</h3><i class="fa-solid fa-shop fa-2xl"></i><p class="display-5"></p></li>
+              <li><h3>Total purchase</h3><i class="fa-solid fa-money-bills fa-2xl"></i><p class="display-5"></p></li>
+              <li><h3>Total sales</h3><i class="fa-solid fa-cart-shopping fa-2xl"></i><p class="display-5"></p></li>
+            </ul>
+            <ul class="dash-list">
+              <li><h3>Reg. vendors</h3><i class="fa-solid fa-warehouse fa-2xl"></i><p class="display-5"></p></li>
+              <li><h3>Insights</h3><i class="fa-solid fa-chart-simple fa-2xl"></i><p class="display-5"></p></li>
+              <li><h3>Support</h3><i class="fa-solid fa-headset fa-2xl"></i><p class="display-5"></p></li>
+            </ul>
+
+            <!-- <div class="row">
+              <div class="col-md-4 per-tab">Total items</div>
+              <div class="col-md-4 per-tab">Total purchase</div>
+              <div class="col-md-4 per-tab">Total sales</div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 per-tab">Reg. vendors</div>
+              <div class="col-md-4 per-tab">Insights</div>
+              <div class="col-md-4 per-tab">Support</div>
+            </div> -->
+          </div>
+
+          <div id="item-add-container">
             <div class="item-product-container">
               <div>
                 <label>Item Number<span class="rqd">*</span></label><br>
@@ -391,6 +417,30 @@
         <img src="assets\jpegs\Green-check-mark-icon-on-transparent-background-PNG.png">
       </div>
     </div> -->
+    
+      <div class="jumbotron footer pt-4">
+        <div class="row">
+          <div class="col-md-4">
+              <ul  class="social">
+                <li><a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a></li>
+                <li><a href=""><i class="fa-brands fa-github fa-lg"></i></a></i></li>
+                <li><a href="https://www.instagram.com/a_r_in_z_e/?igshid=OTk0YzhjMDVlZA%3D%3D"><i class="fa-brands fa-instagram fa-lg"></i></a></i></li>
+                <li><a href=""><i class="fa-brands fa-twitter fa-lg"></i></a></li>
+              </ul>
+          </div>
+          <div class="col-md-4">
+            <div class="copy-write">
+              <i class="fa-regular fa-copyright fa-lg"></i>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="contact">
+              <a href="akanagapyt@gmail.com">Contact Developer via Mail</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
     
 
     <script src="assets\script\script.js"></script>
