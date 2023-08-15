@@ -228,7 +228,7 @@ ul {
 }
 
 .dash-list > li:hover {
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 
 .dash-list > li > i {
