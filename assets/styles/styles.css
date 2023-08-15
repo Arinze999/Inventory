@@ -43,8 +43,8 @@ textarea {
 }
 
 .navbar-top {
-  background-image: linear-gradient(to bottom, rgb(25, 25, 223), rgb(1, 1, 29));
-  /* background: linear-gradient(to bottom, rgb(36, 36, 79), rgb(81, 81, 114)); */
+  /* background-image: linear-gradient(to bottom, rgb(25, 25, 223), rgb(1, 1, 29)); */
+  background: linear-gradient(to bottom, rgb(36, 36, 79), rgb(81, 81, 114));
   color: white;
   margin-left: 1%;
   margin-right: 1%;
@@ -218,17 +218,17 @@ ul {
   align-items: baseline;
   padding: 1em;
   border-radius: 5px;
-  /* background: linear-gradient(to right, rgb(36, 36, 79), rgb(81, 81, 114)); */
-  background-image: linear-gradient(to right, darkblue, rgb(1, 1, 29));
+  background: linear-gradient(to right, rgb(36, 36, 79), rgb(81, 81, 114));
+  /* background-image: linear-gradient(to right, darkblue, rgb(1, 1, 29)); */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4), 0px 1px 10px rgba(0, 0, 0, 0.08);
   color: white;
-  width: 25em;
+  width: 20em;
   height: 8em;
   transition-duration: 0.5s;
 }
 
 .dash-list > li:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .dash-list > li > i {
@@ -241,8 +241,8 @@ ul {
 
 .footer {
   margin-top: 5em;
-  /* background: linear-gradient(to bottom, rgb(36, 36, 79), rgb(81, 81, 114)); */
-  background-image: linear-gradient(to bottom, rgb(25, 25, 223), rgb(1, 1, 29));
+  background: linear-gradient(to bottom, rgb(36, 36, 79), rgb(81, 81, 114));
+  /* background-image: linear-gradient(to bottom, rgb(25, 25, 223), rgb(1, 1, 29)); */
   color: white;
 }
 
