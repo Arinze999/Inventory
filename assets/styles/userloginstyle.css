@@ -30,9 +30,10 @@ body {
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
-    width: 30%;
-    min-width:25em;
+    height: 25em;
+    width:20em;
     padding: 2em;
+    padding-bottom: 5em;
 }
 
 .login-form > input {
