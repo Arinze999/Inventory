@@ -240,10 +240,14 @@ ul {
 }
 
 .footer {
-  margin-top: 5em;
   background: linear-gradient(to bottom, rgb(36, 36, 79), rgb(81, 81, 114));
   /* background-image: linear-gradient(to bottom, rgb(25, 25, 223), rgb(1, 1, 29)); */
   color: white;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  z-index: 1;
+  margin-top: 21em;
 }
 
 .social > li {
