@@ -71,7 +71,10 @@ body {
 .issues {
     display: flex;
     flex-direction: column;
-    padding: 0.5em;
+}
+
+.issues > a {
+    margin-bottom: 1em;
 }
 
 h4 {
@@ -81,9 +84,17 @@ h4 {
 a {
     color: rgb(185,203,215);
     width: fit-content;
-    margin-left: 1em;
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+a:hover {
+   color: white; 
+   text-decoration: underline;
 }
 
 p {
     color: rgb(185,203,215);
+    font-weight: 500;
 }

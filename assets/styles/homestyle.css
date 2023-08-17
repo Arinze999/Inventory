@@ -132,6 +132,21 @@ body {
   .social > li {
     padding: 1em;
   }
+  .social > li > a {
+    color: rgb(200, 200, 225);
+  }
+  .social > li > a:hover {
+    color: white;
+  }
+
+  .contact > a {
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .contact > a:hover {
+    text-decoration: underline;
+    color: white;
+  }
 
   @media (max-width: 767px) {
     .home-list {
@@ -161,5 +176,10 @@ body {
       padding-top: 1em;
       padding-left: 30%;
       padding-right: 0;
+    }
+    .nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
