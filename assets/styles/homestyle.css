@@ -74,6 +74,8 @@ body {
     border-radius: 20px;
     text-align: left;
     width:25em;
+    visibility:initial;
+    /* animation-name: slideIn; */
   }
   .banner:hover {
     border-top-right-radius:50px;
@@ -165,17 +167,24 @@ body {
     .social {
       display: flex;
       flex-direction: row;
-      padding-left: 30%;
-      padding-right: 0;
+      /* padding-left: 30%;
+      padding-right: 0; */
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
     .copy-write {
       padding-left: 50%;
       padding-right: 40%;
     }
     .contact {
-      padding-top: 1em;
+      /* padding-top: 1em;
       padding-left: 30%;
-      padding-right: 0;
+      padding-right: 0; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
     .nav {
       display: flex;
@@ -183,3 +192,15 @@ body {
       align-items: center;
     }
   }
+
+  /* @keyframes slideIn {
+    0% {
+      color: transparent;
+    }
+    50% {
+    color:grey;
+    }
+    100% {
+      color: white;
+    }
+  } */
