@@ -91,8 +91,13 @@ let purchaseTable = document.getElementById("purchase-table");
 let salesTable = document.getElementById("sales-table");
 let vendorsTable = document.getElementById("vendors-table");
 
+// nav toggle function
+const navToggle = document.getElementById("navi-toggle");
+// const navToggle2 = Document.getElementById("navi-toggle2");
+const navBar = document.getElementById("navi-bar");
+
 // nav bar tabs click functions
-dashBoardTab.addEventListener("click" , () => {
+dashBoardTab.addEventListener("click", () => {
   dashBoardTab.style.backgroundColor = "orangered";
   dashBoardTab.style.color = "white";
   itemsTab.style.backgroundColor = "initial";
@@ -123,7 +128,7 @@ dashBoardTab.addEventListener("click" , () => {
   vendorsRecord.style.display = "none";
   recordTabcontent.style.display = "none";
   purchaseRecord.style.display = "none";
-})
+});
 
 itemsTab.addEventListener("click", () => {
   itemsTab.style.backgroundColor = "orangered";
@@ -411,8 +416,8 @@ addItem.addEventListener("click", () => {
 
   alert("ITEM SAVED!");
 });
-// clearitemForm function 
-clearitemForm.addEventListener("click" , () => {
+// clearitemForm function
+clearitemForm.addEventListener("click", () => {
   itemNumber.value = "";
   itemName.value = "";
   itemStatus.value = "Active";
@@ -420,8 +425,7 @@ clearitemForm.addEventListener("click" , () => {
   itemDiscount.value = "";
   itemUnitPrice.value = "";
   itemDescription.value = "";
-})
-
+});
 
 // addPurchase button function
 addPurchase.addEventListener("click", () => {
@@ -486,7 +490,7 @@ addPurchase.addEventListener("click", () => {
   alert("PURCHASE ADDED!");
 });
 // clearpurchaseForm function
-clearpurchaseForm.addEventListener("click" , () => {
+clearpurchaseForm.addEventListener("click", () => {
   purchaseNumber.value = "";
   purchaseDate.value = "";
   purchaseId.value = "";
@@ -496,8 +500,7 @@ clearpurchaseForm.addEventListener("click" , () => {
   purchaseQuantity.value = "";
   purchaseunitCost.value = "";
   purchasetotalCost.value = "";
-})
-
+});
 
 // addSale button function
 addSale.addEventListener("click", () => {
@@ -561,7 +564,7 @@ addSale.addEventListener("click", () => {
   alert("SALE ADDED!");
 });
 // clearsaleForm function
-clearsaleForm.addEventListener("click" , () => {
+clearsaleForm.addEventListener("click", () => {
   saleNumber.value = "";
   saleId.value = "";
   saleName.value = "";
@@ -571,8 +574,7 @@ clearsaleForm.addEventListener("click" , () => {
   saleQuantity.value = "";
   saleunitPrice.value = "";
   saleTotal.value = "";
-})
-
+});
 
 // addVendor button function
 addVendor.addEventListener("click", () => {
@@ -635,7 +637,7 @@ addVendor.addEventListener("click", () => {
   alert("VENDOR ADDED!");
 });
 // clearvenforForm function
-clearvendorForm.addEventListener("click" , () => {
+clearvendorForm.addEventListener("click", () => {
   vendorName.value = "";
   vendorStatus.value = "";
   vendorId.value = "";
@@ -645,8 +647,7 @@ clearvendorForm.addEventListener("click" , () => {
   vendorAddress1.value = "";
   vendorAddress2.value = "";
   vendorCity.value = "";
-})
-
+});
 
 // remove error message
 errorRemove.addEventListener("click", () => {
@@ -660,4 +661,20 @@ numberInputs.forEach(function (number) {
       number.value = "";
     }
   });
+});
+
+// // toggle navbar on and off on a small screen
+// navToggle.addEventListener("click" , () => {
+//  if (navBar.style.display = "none") {
+//   navBar.style.display = "flex";
+//   navToggle2.style.visibility = "visible";
+//  }
+//  else  {
+//   navBar.style.display = "none"
+//  }
+//  return
+// ;})
+
+navToggle.addEventListener("click", () => {
+  navBar.classList.toggle("show")
 });
