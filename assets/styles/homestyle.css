@@ -125,6 +125,9 @@ body {
   .footer {
     background: linear-gradient(to bottom, rgb(36, 36, 79), rgb(81, 81, 114));
     margin-top: 10em;
+    /* position: absolute; */
+    width: 100%;
+    bottom: 0;
   }
 
   .social {
@@ -163,6 +166,7 @@ body {
       display: flex;
       justify-content: center;
       align-items: center;
+      bottom: 0;
     }
     .social {
       display: flex;
