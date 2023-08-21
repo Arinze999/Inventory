@@ -461,17 +461,17 @@ ul {
   font-weight: 600;
 }
 
-/* #update {
+ #enroll {
   background-color: blue;
   width: 5em;
 }
 
-#update:hover {
+#enroll:hover {
   background-color: darkblue;
   font-weight: 600;
 }
 
-#del {
+/* #del {
   background-color: red;
   width: 5em;
 }
@@ -479,7 +479,7 @@ ul {
 #del:hover {
   background-color: darkred;
   font-weight: 600;
-} */
+} */ 
 
 #clear {
   background-color: red;
@@ -531,6 +531,10 @@ tr:nth-child(even) {
   width: 5%;
 }
 
+.p-item-idi {
+  width: 10%;
+}
+
 .name {
   width: 20%;
 }
@@ -551,7 +555,7 @@ tr:nth-child(even) {
 }
 
 .unit {
-  width: 15%;
+  width: 10%;
   padding-right: 1em;
 }
 

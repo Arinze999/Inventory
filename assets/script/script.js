@@ -33,9 +33,11 @@ let itemDescription = document.getElementById("describe");
 let itemDiscount = document.getElementById("disc");
 let itemQuantity = document.getElementById("quant");
 let itemUnitPrice = document.getElementById("unip");
+let itemProductId = document.getElementById("item-p-id");
 // itemsearch table
 let searchTable = document.getElementById("search-table");
 //add item buttons
+let enRollitem = document.getElementById("enroll");
 let addItem = document.getElementById("add");
 let clearitemForm = document.getElementById("clear");
 
@@ -356,6 +358,17 @@ vendorsRecord.addEventListener("click", () => {
   // recordTabcontent.innerHTML = vendorsTable.innerHTML;
 });
 
+// enroll item button function 
+enRollitem.addEventListener("click" , () => {
+  const count = 10000;
+
+  for (let i = 1; i <= count; i++) {
+   console.log(count);
+  }
+
+  itemProductId.value = "inv" + "." + itemNumber.value + "." + count ;
+});
+
 // additem button function
 addItem.addEventListener("click", () => {
   if (
@@ -366,7 +379,10 @@ addItem.addEventListener("click", () => {
   ) {
     errorMessage.style.display = "initial";
     errorRemove.classList.add("fa-solid fa-xmark");
-    return;
+  }
+  else if (itemProductId.value == "") {
+    alert("PLEASE ENROLL FIRST!");
+    return
   }
 
   let itemRows = document.createElement("tr");
@@ -375,17 +391,19 @@ addItem.addEventListener("click", () => {
   let itemData1 = document.createElement("td");
   itemData1.innerHTML = itemNumber.value;
   let itemData2 = document.createElement("td");
-  itemData2.innerHTML = itemName.value;
+  itemData2.innerHTML = itemProductId.value;
   let itemData3 = document.createElement("td");
-  itemData3.innerHTML = itemStatus.value;
+  itemData3.innerHTML = itemName.value;
   let itemData4 = document.createElement("td");
-  itemData4.innerHTML = itemQuantity.value;
+  itemData4.innerHTML = itemStatus.value;
   let itemData5 = document.createElement("td");
-  itemData5.innerHTML = itemDiscount.value;
+  itemData5.innerHTML = itemQuantity.value;
   let itemData6 = document.createElement("td");
-  itemData6.innerHTML = itemUnitPrice.value;
+  itemData6.innerHTML = itemDiscount.value;
   let itemData7 = document.createElement("td");
-  itemData7.innerHTML = itemDescription.value;
+  itemData7.innerHTML = itemUnitPrice.value;
+  let itemData8 = document.createElement("td");
+  itemData8.innerHTML = itemDescription.value;
   // let deleteRow = document.createElement("i");
   // deleteRow.innerText = "d";
   // deleteRow.classList.add("fa-solid fa-trash");
@@ -397,6 +415,7 @@ addItem.addEventListener("click", () => {
   itemRows.appendChild(itemData5);
   itemRows.appendChild(itemData6);
   itemRows.appendChild(itemData7);
+  itemRows.appendChild(itemData8);
   // itemRows.appendChild(deleteRow);
 
   searchTable.appendChild(itemRows);
@@ -413,10 +432,11 @@ addItem.addEventListener("click", () => {
   itemDiscount.value = "";
   itemUnitPrice.value = "";
   itemDescription.value = "";
+  itemProductId.value = "";
 
   alert("ITEM SAVED!");
 });
-// clearitemForm function
+// clearitemForm button function
 clearitemForm.addEventListener("click", () => {
   itemNumber.value = "";
   itemName.value = "";

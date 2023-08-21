@@ -82,7 +82,7 @@
               </div>
               <div>
                 <label>Product ID</label><br>
-                <input type="text" disabled>
+                <input id="item-p-id" type="text" readonly>
               </div>
             </div>
             <div class="name-status-container">
@@ -121,11 +121,11 @@
             </div>
             <div class="buttons-row">
               <div>
+                <button id="enroll">Enroll</button>
+              </div>
+              <div>
                 <button id="add">Add Item</button>
               </div>
-              <!-- <div>
-                <button id="update">Update</button>
-              </div> -->
               <!-- <div>
                 <button id="del">Delete</button>
               </div> -->
@@ -139,6 +139,7 @@
             <table id="search-table">
               <tr class="header-row">
                 <th class="number">Item#</th>
+                <th class="p-item-idi">Product.ID</th>
                 <th class="name">Item Name</th>
                 <th class="status">Status</th>
                 <th class="quant">Quantity</th>
