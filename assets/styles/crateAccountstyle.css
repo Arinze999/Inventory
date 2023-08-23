@@ -90,7 +90,7 @@ input {
 }
 
 .btn-container > button {
-  width: 30%;
+  width: 50%;
   font-weight: 600;
   border: none;
   border-radius: 5px;
@@ -162,9 +162,6 @@ a:hover {
   }
   .btn-container {
     width: 100%;
-  }
-  .btn-container > button {
-    width: 50%;
   }
 }
 
