@@ -163,6 +163,9 @@ a:hover {
   .btn-container {
     width: 100%;
   }
+  .btn-container > button {
+    width: 50%;
+  }
 }
 
 hr {
