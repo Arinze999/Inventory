@@ -1,154 +1,216 @@
 body {
-    padding: 0;
-    margin: 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    color: black;
+  padding: 0;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: black;
 }
 
 .caf-container {
-    width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .create-account-form {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    color:  rgb(8,27,43);
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  color: rgb(8, 27, 43);
+  transition-duration: 0.9s;
 }
 
 .create-account-form > div {
-    border-collapse: collapse;
-    margin: 0;
-    padding: 0;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
 }
 
 .form-side {
-    background: linear-gradient(to left , rgb(8,27,43) , rgb(55,78,100), rgb(8,27,43));
-    width: 100%;
-    height: 100%;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+  background: linear-gradient(
+    to left,
+    rgb(8, 27, 43),
+    rgb(55, 78, 100),
+    rgb(8, 27, 43)
+  );
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 2px solid white;
+  transition-duration: 0.5s;
+  transition-property: all;
+  animation: border-animation 8s infinite ease-in-out;
 }
 
 .form-side > div > h3 {
-    text-align: center;
-    color: rgb(189, 193, 197);
-    padding: 0.5em;
+  text-align: center;
+  color: rgb(189, 193, 197);
+  padding: 0.5em;
 }
 
 .form-main {
-    background-color: rgba(255, 255, 255, 1);
-    margin-left:-1.5em;
-    padding: 1em;
-    border-top-right-radius:5px ;
-    border-bottom-right-radius:5px ;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4), 0px 1px 10px rgba(0, 0, 0, 0.08);
+  background-color: rgba(255, 255, 255, 1);
+  margin-left: -1.5em;
+  padding: 1em;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4), 0px 1px 10px rgba(0, 0, 0, 0.08);
 }
 
 .form-main > div {
-    padding-bottom: 1em;
+  padding-bottom: 1em;
 }
 
 label {
-    margin-bottom: 0.3em;
+  margin-bottom: 0.3em;
 }
 
 input {
-    width: 80%;
-    padding: 0.3em;
-    background: transparent;
-    border: 2px solid  rgb(8,27,43);
-    border-radius: 5px;
-    color:  rgb(8,27,43);
+  width: 80%;
+  padding: 0.3em;
+  background: transparent;
+  border: 2px solid rgb(8, 27, 43);
+  border-radius: 5px;
+  color: rgb(8, 27, 43);
 }
 
-
 .btn-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
 }
 
 .btn-container > button {
-    width: 50%;
-    font-weight: 600;
-    border: none;
-    border-radius: 5px;
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
-    transition-duration: 0.5s;
-    color: rgb(8,27,43);
-    background-color: rgba(55,78,100, 0.4);
+  width: 30%;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  transition-duration: 0.5s;
+  color: rgb(8, 27, 43);
+  background-color: rgba(55, 78, 100, 0.4);
 }
 
 .btn-container > button:hover {
-    transform: scale(0.9);
-    background: linear-gradient(to left , rgb(8,27,43) , rgb(55,78,100), rgb(8,27,43));
-    color: white;
+  transform: scale(0.9);
+  background: linear-gradient(
+    to left,
+    rgb(8, 27, 43),
+    rgb(55, 78, 100),
+    rgb(8, 27, 43)
+  );
+  color: white;
 }
 
 .else {
-    display: flex;
+  display: flex;
 }
 
 .else > a {
-    margin-left: 1em;
-    color: darkblue;
-    text-decoration: none;
+  margin-left: 1em;
+  color: darkblue;
+  text-decoration: none;
 }
 
 a {
-    color: darkblue;
-    text-decoration: none;
+  color: darkblue;
+  text-decoration: none;
 }
 
 a:hover {
-    color: darkblue;
-    text-decoration: underline;
+  color: darkblue;
+  text-decoration: underline;
 }
 
 .else > a:hover {
-    color: darkblue;
-    text-decoration: underline;
+  color: darkblue;
+  text-decoration: underline;
 }
 
 @media (max-width: 767px) {
-    .form-main {
-        margin-left: 0;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
-    }
-    .form-side {
-        flex-direction: row;
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-    }
-    input {
-        width: 100%;
-    }
-    .caf-container {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-    }
+  .form-main {
+    margin-left: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+  .form-side {
+    flex-direction: row;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  input {
+    width: 100%;
+  }
+  .caf-container {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .btn-container {
+    width: 100%;
+  }
 }
 
 hr {
-    margin-top: 0;
-    margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@keyframes border-animation {
+  25% {
+    border-left-color: rgb(8, 27, 43);
+    border-top-color: rgb(55, 78, 100);
+    border-right-color: white;
+    border-bottom-color: white;
+  }
+  50% {
+    border-left-color: white;
+    border-top-color: rgb(8, 27, 43);
+    border-right-color: rgb(55, 78, 100);
+    border-bottom-color: white;
+  }
+  75% {
+    border-left-color: white;
+    border-top-color: white;
+    border-right-color: rgb(8, 27, 43);
+    border-bottom-color: rgb(55, 78, 100);
+  }
+  80% {
+    border-left-color: rgb(55, 78, 100);
+    border-top-color: white;
+    border-right-color: white;
+    border-bottom-color: rgb(8, 27, 43);
+  }
+  100% {
+    border-left-color: white;
+    border-top-color: white;
+    border-right-color: white;
+    border-bottom-color: white;
+  }
+  /* 25% {
+        border-left: 2px solid white;
+    }
+    50% {
+        border-top: 2px solid white;
+    }
+    75% {
+        border-right: 2px solid white;
+    }
+    100% {
+        border-bottom: 2px solid white;
+    } */
 }

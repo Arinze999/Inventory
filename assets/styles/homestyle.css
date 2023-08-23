@@ -19,7 +19,12 @@ body {
   } 
 
   .navbar-top {
-    background: linear-gradient(to bottom, rgb(36, 36, 79), rgb(81, 81, 114));
+    /* background: linear-gradient(to bottom, rgb(36, 36, 79), rgb(81, 81, 114)); */
+    background: linear-gradient(
+      to bottom,
+      rgb(8, 27, 43),
+      rgb(55, 78, 100)
+    );
     position: fixed;
     width: 100%;
     z-index: 2;
@@ -113,17 +118,28 @@ body {
     border-radius: 5px;
     font-weight: 600;
     transition-duration: 0.5s;
-    color: rgb(36, 36, 79) ;
+    color: rgb(8, 27, 43);
   }
   .start > button:hover {
-    background: linear-gradient(to right, rgb(36, 36, 79), rgb(81, 81, 114));
+    /* background: linear-gradient(to right, rgb(36, 36, 79), rgb(81, 81, 114)); */
+    background: linear-gradient(
+      to left,
+      rgb(8, 27, 43),
+      rgb(55, 78, 100),
+      rgb(8, 27, 43)
+    );
     transform: scale(0.8);
     font-weight: 600;
     color: white;
   }
 
   .footer {
-    background: linear-gradient(to bottom, rgb(36, 36, 79), rgb(81, 81, 114));
+    /* background: linear-gradient(to bottom, rgb(36, 36, 79), rgb(81, 81, 114)); */
+    background: linear-gradient(
+      to bottom,
+      rgb(8, 27, 43),
+      rgb(55, 78, 100)
+    );
     margin-top: 10em;
     /* position: absolute; */
     width: 100%;

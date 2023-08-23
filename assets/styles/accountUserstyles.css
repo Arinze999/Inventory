@@ -44,7 +44,8 @@ textarea {
 
 .navbar-top {
   /* background-image: linear-gradient(to bottom, rgb(25, 25, 223), rgb(1, 1, 29)); */
-  background: linear-gradient(to bottom, rgb(36, 36, 79), rgb(81, 81, 114));
+  /* background: linear-gradient(to bottom, rgb(36, 36, 79), rgb(81, 81, 114)); */
+  background: linear-gradient(to bottom, rgb(8, 27, 43), rgb(55, 78, 100));
   color: white;
   margin-left: 1%;
   margin-right: 1%;
@@ -94,11 +95,11 @@ ul {
 }
 
 #navi-toggle {
- visibility: hidden;
- padding: 0.5em;
- font-weight: 600;
- color: rgb(109, 109, 109);
- transition-duration: 0.5s;
+  visibility: hidden;
+  padding: 0.5em;
+  font-weight: 600;
+  color: rgb(109, 109, 109);
+  transition-duration: 0.5s;
 }
 
 #navi-toggle2 {
@@ -144,6 +145,7 @@ ul {
   border-bottom: 1px solid rgb(109, 109, 109);
   font-weight: 600;
   padding-left: 1em;
+  color: rgb(8, 27, 43);
 }
 
 .detail-select {
@@ -176,7 +178,7 @@ ul {
     margin: 0;
     padding: 1em;
     margin-top: -2.7em;
-    background:rgb(242, 242, 242) ;
+    background: rgb(242, 242, 242);
     border-radius: 5px;
     width: 80%;
   }
@@ -240,7 +242,9 @@ ul {
   .dash-list > li {
     margin-top: 2em;
   }
-  .social , .copy-write , .contact {
+  .social,
+  .copy-write,
+  .contact {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -283,8 +287,14 @@ ul {
   align-items: baseline;
   padding: 1em;
   border-radius: 5px;
-  background: linear-gradient(to right, rgb(36, 36, 79), rgb(81, 81, 114));
+  /* background: linear-gradient(to right, rgb(36, 36, 79), rgb(81, 81, 114)); */
   /* background-image: linear-gradient(to right, darkblue, rgb(1, 1, 29)); */
+  background: linear-gradient(
+    to left,
+    rgb(8, 27, 43),
+    rgb(55, 78, 100),
+    rgb(8, 27, 43)
+  );
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4), 0px 1px 10px rgba(0, 0, 0, 0.08);
   color: white;
   width: 20em;
@@ -305,8 +315,9 @@ ul {
 }
 
 .footer {
-  background: linear-gradient(to bottom, rgb(36, 36, 79), rgb(81, 81, 114));
+  /* background: linear-gradient(to bottom, rgb(36, 36, 79), rgb(81, 81, 114)); */
   /* background-image: linear-gradient(to bottom, rgb(25, 25, 223), rgb(1, 1, 29)); */
+  background: linear-gradient(to bottom, rgb(8, 27, 43), rgb(55, 78, 100));
   color: white;
   position: relative;
   width: 100%;
@@ -461,7 +472,7 @@ ul {
   font-weight: 600;
 }
 
- #enroll {
+#enroll {
   background-color: blue;
   width: 5em;
 }
@@ -479,7 +490,7 @@ ul {
 #del:hover {
   background-color: darkred;
   font-weight: 600;
-} */ 
+} */
 
 #clear {
   background-color: red;
