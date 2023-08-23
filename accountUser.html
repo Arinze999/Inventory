@@ -171,7 +171,7 @@
                 </div>
                 <div>
                   <label>Purchase ID</label><br>
-                  <input id="p-id" type="text">
+                  <input id="p-id" type="text" readonly>
                 </div>
               </div>
               <div class="name-stock-vendor-container">
@@ -181,7 +181,7 @@
                 </div>
                 <div>
                   <label title="current stock">C.Stock</label><br>
-                  <input id="p-stock" type="text">
+                  <input id="p-stock" type="text" disabled>
                 </div>
                 <div>
                   <label>Vendor Name<span class="rqd">*</span></label><br>
@@ -199,16 +199,16 @@
                 </div>
                 <div>
                   <label>Total Cost</label>
-                  <input id="p-total" type="text">
+                  <input id="p-total" type="text" readonly>
                 </div>
               </div>
               <div class="purchase-buttons-container">
                 <div>
+                  <button id="enroll-p">Enroll</button>
+                </div>
+                <div>
                   <button id="add-p">Add Purchase</button>
                 </div>
-                <!-- <div>
-                  <button id="update-p">Update</button>
-                </div> -->
                 <div>
                   <button id="clear-p">Clear</button>
                 </div>
@@ -223,7 +223,7 @@
                 </div>
                 <div>
                   <label>Sale ID</label><br>
-                  <input id="sale-id" type="text">
+                  <input id="sale-id" type="text" readonly>
                 </div>
             </div>
             <div class="name-date-container">
@@ -239,7 +239,7 @@
             <div class="sale-second-last-container">
               <div>
                 <label for="">Total Stock</label><br>
-                <input id="sale-stock" type="text">
+                <input id="sale-stock" type="text" disabled>
               </div>
               <div>
                 <label for="">Discount %</label><br>
@@ -255,16 +255,16 @@
               </div>
               <div>
                 <label for="">Total</label><br>
-                <input id="sale-total" type="text">
+                <input id="sale-total" type="text" readonly>
               </div>
             </div>
             <div class="sale-buttons-container">
               <div>
+                <button id="sale-enroll">Enroll</button>
+              </div>
+              <div>
                 <button id="sale-add">Add Sale</button>
               </div>
-              <!-- <div>
-                <button id="sale-update">Update</button>
-              </div> -->
               <div>
                 <button id="sale-clear">Clear</button>
               </div>
@@ -286,7 +286,7 @@
                 </div>
                 <div>
                   <label for="">Vendor ID</label><br>
-                  <input id="vendor-id" type="text">
+                  <input id="vendor-id" type="text" readonly>
                 </div>
               </div>
               <div class="vendor-contact-container">
@@ -313,12 +313,12 @@
               </div>
               <div class="vendor-buttons-container">
                 <div>
+                  <button id="vendor-enroll">Enroll</button>
+                </div>
+                <div>
                   <button id="vendor-add">Add Vendor</button>
                 </div>
                 <!-- <div>
-                  <button id="vendor-up">Update</button>
-                </div>
-                <div>
                   <button id="vendor-del">Delete</button>
                 </div> -->
                 <div>
@@ -333,9 +333,9 @@
                     <tr class="header-row">
                       <th class="mini">Item#</th>
                       <th class="medium">Date</th>
-                      <th class="medium">P. ID</th>
+                      <th class="long">P. ID</th>
                       <th class="">Item Name</th>
-                      <th class="long-mid">Current Stock</th>
+                      <th class="medium">Current Stock</th>
                       <th class="">Vendor Name</th>
                       <th class="mini">Quantity</th>
                       <th class="medium">Unit Price</th>
@@ -358,10 +358,10 @@
                 <table id="s-main-table">
                   <tr class="header-row">
                     <th class="mini">Item#</th>
-                    <th class="medium">Sale ID</th>
-                    <th class="very-long">Item Name</th>
-                    <th class="">Date</th>
-                    <th class="">Total Stock</th>
+                    <th class="long">Sale ID</th>
+                    <th class="long">Item Name</th>
+                    <th class="long">Date</th>
+                    <th class="medium">Total Stock</th>
                     <th class="mini">Discount</th>
                     <th class="mini">Quantity</th>
                     <th class="medium">Unit Price</th>
@@ -383,7 +383,7 @@
                   <tr class="header-row">
                     <th class="long">Full Name</th>
                     <th class="mini">Status</th>
-                    <th class="medium">Vendor ID</th>
+                    <th class="long">Vendor ID</th>
                     <th class="medium">Phone</th>
                     <th class="medium">Phone 2</th>
                     <th class="medium">Email</th>

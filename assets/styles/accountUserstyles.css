@@ -532,7 +532,7 @@ tr:nth-child(even) {
 }
 
 .p-item-idi {
-  width: 10%;
+  width: 15%;
 }
 
 .name {
@@ -689,15 +689,15 @@ tr:nth-child(even) {
   font-weight: 600;
 }
 
-/* #update-p {
+#enroll-p {
   background-color: blue;
   width: 5em;
 }
 
-#update-p:hover {
+#enroll-p:hover {
   background-color: darkblue;
   font-weight: 600;
-} */
+}
 
 #clear-p {
   background-color: red;
@@ -810,15 +810,15 @@ tr:nth-child(even) {
   font-weight: 600;
 }
 
-/* #sale-update {
+#sale-enroll {
   background-color: blue;
   width: 5em;
 }
 
-#sale-update:hover {
+#sale-enroll:hover {
   background-color: darkblue;
   font-weight: 600;
-} */
+}
 
 #sale-clear {
   background-color: red;
@@ -939,16 +939,16 @@ tr:nth-child(even) {
   background-color: green;
   font-weight: 600;
 }
-/* 
-#vendor-up {
+
+#vendor-enroll {
   background-color: blue;
   width: 5em;
 }
 
-#vendor-up:hover {
+#vendor-enroll:hover {
   background-color: darkblue;
   font-weight: 600;
-} */
+}
 
 /* #vendor-del {
   background-color: red;

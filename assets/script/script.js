@@ -52,6 +52,7 @@ let purchaseQuantity = document.getElementById("p-quant");
 let purchaseunitCost = document.getElementById("p-unit");
 let purchasetotalCost = document.getElementById("p-total");
 // purchase buttons
+let enrollPurchase = document.getElementById("enroll-p");
 let addPurchase = document.getElementById("add-p");
 let clearpurchaseForm = document.getElementById("clear-p");
 
@@ -66,6 +67,7 @@ let saleQuantity = document.getElementById("sale-quantity");
 let saleunitPrice = document.getElementById("sale-unit-price");
 let saleTotal = document.getElementById("sale-total");
 // sale buttons
+let saleEnroll = document.getElementById("sale-enroll");
 let addSale = document.getElementById("sale-add");
 let clearsaleForm = document.getElementById("sale-clear");
 
@@ -80,6 +82,7 @@ let vendorAddress1 = document.getElementById("vendor-address1");
 let vendorAddress2 = document.getElementById("vendor-address2");
 let vendorCity = document.getElementById("vendor-city");
 //vendor buttons
+let enrollVendor = document.getElementById("vendor-enroll");
 let addVendor = document.getElementById("vendor-add");
 let clearvendorForm = document.getElementById("vendor-clear");
 
@@ -358,15 +361,26 @@ vendorsRecord.addEventListener("click", () => {
   // recordTabcontent.innerHTML = vendorsTable.innerHTML;
 });
 
-// enroll item button function 
-enRollitem.addEventListener("click" , () => {
-  const count = 10000;
-
-  for (let i = 1; i <= count; i++) {
-   console.log(count);
+// enroll item button function
+enRollitem.addEventListener("click", () => {
+  if (
+    itemNumber.value == "" ||
+    itemName.value == "" ||
+    itemQuantity.value == "" ||
+    itemUnitPrice.value == ""
+  ) {
+    errorMessage.style.display = "initial";
+    errorRemove.classList.add("fa-solid fa-xmark");
+    return;
   }
-
-  itemProductId.value = "inv" + "." + itemNumber.value + "." + count ;
+  let itemIdcount = Math.random().toFixed(4);
+  itemProductId.value =
+    itemName.value[0] +
+    itemName.value[itemName.value.length - 1] +
+    ".itm" +
+    "." +
+    itemNumber.value +
+    itemIdcount;
 });
 
 // additem button function
@@ -379,10 +393,9 @@ addItem.addEventListener("click", () => {
   ) {
     errorMessage.style.display = "initial";
     errorRemove.classList.add("fa-solid fa-xmark");
-  }
-  else if (itemProductId.value == "") {
+  } else if (itemProductId.value == "") {
     alert("PLEASE ENROLL FIRST!");
-    return
+    return;
   }
 
   let itemRows = document.createElement("tr");
@@ -447,6 +460,32 @@ clearitemForm.addEventListener("click", () => {
   itemDescription.value = "";
 });
 
+// enrollPurchase button function
+enrollPurchase.addEventListener("click", () => {
+  if (
+    purchaseDate.value == "" ||
+    purchaseName.value == "" ||
+    purchaseVendor.value == "" ||
+    purchaseQuantity.value == "" ||
+    purchaseunitCost.value == ""
+  ) {
+    errorMessage.style.display = "initial";
+    errorRemove.classList.add("fa-solid fa-xmark");
+    return;
+  }
+  let purchaseIDcount = Math.random().toFixed(4);
+  purchaseId.value =
+    purchaseName.value[0] +
+    purchaseName.value[purchaseName.value.length - 1] +
+    purchaseVendor.value[0] +
+    purchaseVendor.value[purchaseVendor.value.length - 1] +
+    ".pur" +
+    "." +
+    purchaseNumber.value +
+    purchaseIDcount;
+  purchasetotalCost.value = purchaseQuantity.value * purchaseunitCost.value;
+});
+
 // addPurchase button function
 addPurchase.addEventListener("click", () => {
   if (
@@ -458,6 +497,8 @@ addPurchase.addEventListener("click", () => {
   ) {
     errorMessage.style.display = "initial";
     errorRemove.classList.add("fa-solid fa-xmark");
+  } else if (purchaseId.value == "") {
+    alert("PLEASE ENROLL FIRST!");
     return;
   }
 
@@ -522,6 +563,30 @@ clearpurchaseForm.addEventListener("click", () => {
   purchasetotalCost.value = "";
 });
 
+// enroll Sale button function
+saleEnroll.addEventListener("click", () => {
+  if (
+    saleNumber.value == "" ||
+    saleDate.value == "" ||
+    saleQuantity.value == "" ||
+    saleunitPrice.value == ""
+  ) {
+    errorMessage.style.display = "initial";
+    errorRemove.classList.add("fa-solid fa-xmark");
+    return;
+  }
+  let saleIDcount = Math.random().toFixed(4);
+
+  saleId.value = purchaseId.value =
+    saleName.value[0] +
+    saleName.value[saleName.value.length - 1] +
+    ".sll" +
+    "." +
+    saleNumber.value +
+    saleIDcount;
+  saleTotal.value = saleQuantity.value * saleunitPrice.value;
+});
+
 // addSale button function
 addSale.addEventListener("click", () => {
   if (
@@ -532,6 +597,8 @@ addSale.addEventListener("click", () => {
   ) {
     errorMessage.style.display = "initial";
     errorRemove.classList.add("fa-solid fa-xmark");
+  } else if (saleId.value == "") {
+    alert("PLEASE ENROLL FIRST!");
     return;
   }
 
@@ -596,6 +663,28 @@ clearsaleForm.addEventListener("click", () => {
   saleTotal.value = "";
 });
 
+// enroll vendor button function
+enrollVendor.addEventListener("click", () => {
+  if (
+    vendorName.value == "" ||
+    vendorPhone1.value == "" ||
+    vendorAddress1.value == ""
+  ) {
+    errorMessage.style.display = "initial";
+    errorRemove.classList.add("fa-solid fa-xmark");
+    return;
+  }
+  let vendorIDcount = Math.random().toFixed(4);
+
+  vendorId.value =
+    vendorName.value[0] +
+    vendorName.value[vendorName.value.length - 1] +
+    ".ven" +
+    "." +
+    vendorPhone1.value.slice(8) +
+    vendorIDcount;
+});
+
 // addVendor button function
 addVendor.addEventListener("click", () => {
   if (
@@ -605,6 +694,8 @@ addVendor.addEventListener("click", () => {
   ) {
     errorMessage.style.display = "initial";
     errorRemove.classList.add("fa-solid fa-xmark");
+  } else if (vendorId.value == "") {
+    alert("PLEASE ENROLL FIRST!");
     return;
   }
 
@@ -696,5 +787,5 @@ numberInputs.forEach(function (number) {
 // ;})
 
 navToggle.addEventListener("click", () => {
-  navBar.classList.toggle("show")
+  navBar.classList.toggle("show");
 });

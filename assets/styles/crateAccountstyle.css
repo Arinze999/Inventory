@@ -7,6 +7,12 @@ body {
     color: black;
 }
 
+.caf-container {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
 .create-account-form {
     display: flex;
     flex-direction: column;
@@ -43,7 +49,7 @@ body {
 .form-main {
     background-color: rgba(255, 255, 255, 1);
     margin-left:-1.5em;
-    padding: 2em;
+    padding: 1em;
     border-top-right-radius:5px ;
     border-bottom-right-radius:5px ;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4), 0px 1px 10px rgba(0, 0, 0, 0.08);
@@ -54,7 +60,7 @@ body {
 }
 
 label {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.3em;
 }
 
 input {
@@ -135,4 +141,14 @@ a:hover {
     input {
         width: 100%;
     }
+    .caf-container {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+hr {
+    margin-top: 0;
+    margin-bottom: 0;
 }
