@@ -647,6 +647,12 @@ tr:nth-child(even) {
   padding-bottom: 0.3em;
 }
 
+#p-vendor {
+  width: 90%;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}
+
 .quant-unit-total-container {
   display: flex;
   margin-left: 1em;

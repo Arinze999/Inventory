@@ -1,5 +1,3 @@
-// const createButton = document.getElementById("create")
-
 // let fName = document.getElementById("full-name");
 
 
@@ -13,4 +11,14 @@
 
 //     // alert(fullName)
 // });
+// create account button
+const createButton = document.getElementById("create");
+
+// create account user details
+const fullName = document.getElementById("full-name");
+const userName = document.getElementById("user-name");
+const storeName = document.getElementById("store");
+const email = document.getElementById("e-mail");
+const passWord = document.getElementById("pass-word");
+const confirmPassword = document.getElementById("confirm-pass");
 

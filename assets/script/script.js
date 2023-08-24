@@ -735,6 +735,12 @@ addVendor.addEventListener("click", () => {
 
   vendormainTable.appendChild(vendorRows);
 
+  // add vendorName to list of vendors to select on the purchase tab
+  let purchaseVendorOption = document.createElement("option");
+  purchaseVendorOption.value = vendorName.value;
+  purchaseVendorOption.innerText = vendorName.value;
+  purchaseVendor.appendChild(purchaseVendorOption);
+
   vendorName.value = "";
   vendorStatus.value = "";
   vendorId.value = "";
