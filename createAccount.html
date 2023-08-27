@@ -18,7 +18,7 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12 mt-2 mb-2">
+        <div class="col-md-12 mt-2 mb-2 caf-container-parent">
           <div class="caf-container">
             <div class="create-account-form">
               <div class="row">
@@ -41,27 +41,27 @@
                       <h3>Create your Account</h3>
                     <div>
                       <label for="">Full Name</label><br>
-                      <input id="full-name" type="text" />
+                      <input id="full-name" type="text" required />
                     </div>
                     <div>
                       <label for="">Username</label><br>
-                      <input id="user-name" type="text" />
+                      <input id="user-name" type="text" required />
                     </div>
                     <div>
                       <label for="">Store</label><br>
-                      <input id="store" type="text" />
+                      <input id="store" type="text" required />
                     </div>
                     <div>
                       <label for="">Email</label><br>
-                      <input id="e-mail" type="text" />
+                      <input id="e-mail" type="text" required />
                     </div>
                     <div>
                       <label for="">Password</label><br>
-                      <input id="pass-word" type="password" />
+                      <input id="pass-word" type="password" required />
                     </div>
                     <div>
                       <label for="">Confirm Password</label><br>
-                      <input id="confirm-pass" type="password" />
+                      <input id="confirm-pass" type="password" required />
                     </div>
                     <div class="btn-container">
                       <button id="create">Create New</button>
@@ -84,7 +84,7 @@
         </div> -->
       </div>
     </div>
-    <script src="assets\script\createaccountscript.js"></script>
+    <script src="assets\script\createaccountscript.js" type="module"></script>
     <script src="https://kit.fontawesome.com/1b0619be22.js" crossorigin="anonymous"></script>
   </body>
 </html>

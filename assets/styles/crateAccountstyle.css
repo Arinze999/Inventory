@@ -7,10 +7,21 @@ body {
   color: black;
 }
 
+.caf-container-parent {
+  position: relative;
+}
+
 .caf-container {
-  width: 70%;
+  position: absolute;
+  top: 0;
+  right: 20%;
+  left: 20%;
+  bottom: 0;
+  /* width: 70%;
   margin-left: 15%;
   margin-right: 15%;
+  margin-top: 1%;
+  margin-bottom: 1%; */
 }
 
 .create-account-form {
@@ -137,7 +148,8 @@ a:hover {
   text-decoration: underline;
 }
 
-@media (max-width: 767px) {
+/* media querries */
+@media (max-width: 768px) {
   .form-main {
     margin-left: 0;
     border-bottom-left-radius: 5px;
@@ -156,12 +168,31 @@ a:hover {
     width: 100%;
   }
   .caf-container {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    left: 0;
+    right: 0;
   }
   .btn-container {
     width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1500px) {
+  .caf-container {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    left: 0;
+    right: 0;
+  }
+}
+
+@media (min-width: 1901px) {
+  .caf-container {
+    margin-top: 3%;
+ 
   }
 }
 
