@@ -8,12 +8,13 @@ var storeName = document.getElementById("store");
 var email = document.getElementById("e-mail");
 var passWord = document.getElementById("pass-word");
 var confirmPassword = document.getElementById("confirm-pass");
+var passWordStrent = document.getElementById("pass-strent");
 
 // user details array of objects
 const users = [];
 let usersCounter = 1;
 
-// conditions for the detail inputs
+// conditions for the email detail inputs
 email.addEventListener("change", () => {
   if (!email.value.includes("@" && ".com")) {
     email.setAttribute("title", "please write your email correctly");
@@ -23,6 +24,63 @@ email.addEventListener("change", () => {
     email.removeAttribute("title");
     email.style.borderColor = "initial";
     email.style.backgroundColor = "initial";
+  }
+});
+
+//condition for password strength
+passWord.addEventListener("keyup", () => {
+  function hasUppercaseAndLowercase(here) {
+    return /[A-Z]/.test(here) && /[a-z]/.test(here);
+  }
+  function containsNumbers(here) {
+    return /\d/.test(here);
+  }
+  function containsSpecialCharacters(here) {
+    var pattern = /[!@#$%^&*()_+\-=\[\]{}|\\:;'"<>.,/?]/;
+    return pattern.test(here);
+  }
+
+  if (
+    (passWord.value.length < 8 && passWord.value.length != "") ||
+    (hasUppercaseAndLowercase(passWord.value) == false &&
+      passWord.value.length != "") ||
+    (containsNumbers(passWord.value) == false && passWord.value.length != "")
+  ) {
+    passWordStrent.classList.remove("moderate");
+    passWordStrent.classList.remove("strong");
+    passWordStrent.innerText = "weak";
+    passWordStrent.classList.add("weak");
+  } else if (
+    passWord.value.length >= 8 &&
+    passWord.value.length != "" &&
+    hasUppercaseAndLowercase(passWord.value) == true &&
+    passWord.value.length != "" &&
+    containsNumbers(passWord.value) == true &&
+    passWord.value.length != "" &&
+    containsSpecialCharacters(passWord.value) == false &&
+    passWord.value.length != ""
+  ) {
+    passWordStrent.classList.remove("weak");
+    passWordStrent.classList.remove("strong");
+    passWordStrent.innerText = "moderate";
+    passWordStrent.classList.add("moderate");
+  } else if (
+    passWord.value.length >= 8 &&
+    passWord.value.length != "" &&
+    hasUppercaseAndLowercase(passWord.value) == true &&
+    passWord.value.length != "" &&
+    containsNumbers(passWord.value) == true &&
+    passWord.value.length != "" &&
+    containsSpecialCharacters(passWord.value) == true &&
+    passWord.value.length != ""
+  ) {
+    passWordStrent.classList.remove("weak");
+    passWordStrent.classList.remove("moderate");
+    passWordStrent.innerText = "strong";
+    passWordStrent.classList.add("strong");
+  } else if (passWord.value == "") {
+    passWordStrent.innerText = "";
+  } else {
   }
 });
 
@@ -85,7 +143,11 @@ createButton.addEventListener("click", () => {
     alert("FILL EMAIL PROPERLY");
   } else if (userDetails.Confirmpassword != userDetails.PassWord) {
     alert("CROSSCHECK PASSWORD AND CONFIRM!");
-  } else {
+  }
+  else if (passWordStrent.innerText == "weak") {
+    alert("PASSWORD TOO WEAK")
+  }
+   else {
     if (myFunction(userDetails)) {
       alert("already");
     } else {
