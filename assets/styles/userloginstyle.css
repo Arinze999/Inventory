@@ -52,7 +52,7 @@ body {
     color: rgb(4,28,48);
 }
 
-.login-btn > a > button {
+.login-btn >button {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     font-weight: 600;
@@ -65,7 +65,7 @@ body {
     margin-bottom: 0.3em;
 }
 
-.login-btn > a > button:hover {
+.login-btn >button:hover {
     background-color:rgb(12,35,55) ;
     color: white;
     transform: scale(0.9);
