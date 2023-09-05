@@ -11,7 +11,9 @@ var confirmPassword = document.getElementById("confirm-pass");
 var passWordStrent = document.getElementById("pass-strent");
 
 // user details array of objects
-const users = [];
+let users = [];
+// localStorage.setItem("userRaw", JSON.stringify(users));
+let regUsers = JSON.parse(localStorage.getItem("userRaw"));
 let usersCounter = 1;
 
 // conditions for the email detail inputs
@@ -86,8 +88,9 @@ passWord.addEventListener("keyup", () => {
 
 // to loop through and get each already existing userDetails within the user
 function myFunction(userDetails) {
-  for (let i = 0; i < users.length; i++) {
-    var existingUsers = users[i];
+if (regUsers != null) {
+  for (let i = 0; i < regUsers.length; i++) {
+    var existingUsers = regUsers[i];
     console.log(existingUsers);
 
     if (
@@ -112,6 +115,9 @@ function myFunction(userDetails) {
     }
   }
 }
+}
+
+
 
 // create button function
 createButton.addEventListener("click", () => {
@@ -143,110 +149,32 @@ createButton.addEventListener("click", () => {
     alert("FILL EMAIL PROPERLY");
   } else if (userDetails.Confirmpassword != userDetails.PassWord) {
     alert("CROSSCHECK PASSWORD AND CONFIRM!");
-  }
-  else if (passWordStrent.innerText == "weak") {
-    alert("PASSWORD TOO WEAK")
-  }
-   else {
-    if (myFunction(userDetails)) {
-      alert("already");
+  } else if (passWordStrent.innerText == "weak") {
+    alert("PASSWORD TOO WEAK");
+  } else if (myFunction(userDetails)) {
+    alert("already");
+  } else {
+    usersCounter++;
+    users.push(userDetails);
+    if (
+      !(
+        userDetails.Fullname == "" ||
+        userDetails.Username == "" ||
+        userDetails.Storename == "" ||
+        userDetails.Email == "" ||
+        userDetails.PassWord == "" ||
+        userDetails.Confirmpassword == ""
+      )
+    ) {
+      alert("ACOUNT CREATED!");
     } else {
-      usersCounter++;
-      users.push(userDetails);
-      if (
-        !(
-          userDetails.Fullname == "" ||
-          userDetails.Username == "" ||
-          userDetails.Storename == "" ||
-          userDetails.Email == "" ||
-          userDetails.PassWord == "" ||
-          userDetails.Confirmpassword == ""
-        )
-      ) {
-        alert("ACOUNT CREATED!");
-      } else {
-      }
-      console.log(users);
-      // localStorage.setItem("Users", users);
-
-      // let registeredUsers = localStorage.getItem("Users");
-
-      // console.log(registeredUsers);
-
-      // localStorage.clear();
     }
+    localStorage.setItem("userRaw", JSON.stringify(users));
+    regUsers = JSON.parse(localStorage.getItem("userRaw"));
+    console.log(regUsers);
+    
   }
 });
+console.log(regUsers);
 
-// this code is not complete
-
-// var example = "exxx";
-
-// export {example};
-
-//function to check if an object already exists in the array
-// function isDuplicateuserDetails(userDetails) {
-//   for (let i = 0 ; i < users.length ; i++) {
-//     let existinguserDetails = users[i];
-
-//     // compare properties of existing userDetails with new userDetails
-//     let isDuplicate = true;
-//     for (const prop in userDetails) {
-//       if (userDetails.hasOwnProperty(prop) && existinguserDetails.hasOwnProperty(prop)) {
-//         if (userDetails[prop] !== existinguserDetails[prop]) {
-//           isDuplicate = false;
-//         }
-//       }
-//     }
-//     if(isDuplicate) {
-//       return true;
-//     }
-//   }
-//   return false;
-// }
-
-//   //compare properties of new userDeatils with existing userDetails
-//   // var alreadyExistingUser = true;
-//   // var alreadyExistingUsername = true;
-//   // var alreadyExistingUserEmail = true;
-//   // var alreadyExistingStorename = true;
-//   const enableCheck1 = existingUsers.id;
-//   const enableCheck2 = userDetails.id;
-//   const existingUsersCheck1 = existingUsers.Username;
-//   const existingUsersCheck2 = existingUsers.Email;
-//   const existingUsersCheck3 = existingUsers.Storename;
-//   const userDetailscheck1 = userDetails.Username;
-//   const userDetailscheck2 = userDetails.Email;
-//   const userDetailscheck3 = userDetails.Storename;
-
-//   if (enableCheck1 == enableCheck2) {
-//     return false;
-//   }
-//   else {
-//     if (
-//       (userDetailscheck1 == existingUsersCheck1) &&
-//       (userDetailscheck2 == existingUsersCheck2)
-//     ) {
-//       console.log("user already exists");
-//       return true;
-//     } else if (
-//       (userDetailscheck1 !== existingUsersCheck1) &&
-//       (userDetailscheck2 == existingUsersCheck2)
-//     ) {
-//       console.log("this email is already registered to an account");
-//       return true;
-//     } else if (
-//       (userDetailscheck1 == existingUsersCheck1) &&
-//       (userDetailscheck2 !== existingUsersCheck2)
-//     ) {
-//       console.log("this username is not available");
-//       return true;
-//     } else if (userDetailscheck3 == existingUsersCheck3) {
-//       console.log("this store has already been taken");
-//       return true;
-//     } else {
-//       console.log("new user is valid");
-//       return false;
-//     }
-//   }
-// }
+// this code is not complete you need to find a way to prevent appending any useradetail object that any existing one does not validate

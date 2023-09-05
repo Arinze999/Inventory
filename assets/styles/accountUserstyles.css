@@ -66,15 +66,31 @@ textarea {
   transition-duration: 0.3s;
   transition-property: all;
   color: white;
+  position: relative;
 }
 
 .log-out > a:hover {
-  background-color: orangered;
+  background-color: orangered; 
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   padding-right: 0.5em;
   border-radius: 5px;
 }
+
+/* .log-out > a::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  height: 0.15em;
+  width: 0;
+  left: 0;
+  bottom: -0.5em;
+  transition: 0.5s;
+}
+
+.log-out > a:hover::after {
+  width: 100%;
+} */
 
 ul {
   list-style-type: none;
@@ -85,9 +101,10 @@ ul {
 }
 
 .side-bar {
-  transition-duration: 0.5s;
   animation-name: navAnimation;
   animation-iteration-count: 1;
+  transition-property: all;
+  transition-duration: 0.7s;
 }
 
 .side-bar > li > i {
@@ -99,7 +116,8 @@ ul {
   padding: 0.5em;
   font-weight: 600;
   color: rgb(109, 109, 109);
-  transition-duration: 0.5s;
+  transition-duration: 0.8s;
+  transition-property: all;
 }
 
 #navi-toggle2 {
@@ -116,8 +134,25 @@ ul {
   font-weight: 600;
   color: rgb(41, 150, 193);
   transition-duration: 0.5s;
+  transition-property: all;
   border-radius: 5px;
+  position: relative;
 }
+
+/* .side-bar > li > ::after {
+  content: "";
+  position: absolute;
+  background-color: orangered;
+  height: 0.15em;
+  width: 0;
+  left: 0;
+  bottom: -0.5em;
+  transition: 0.5s
+}
+
+.side-bar > li:hover > ::after {
+  width: 100%;
+} */
 
 .side-bar > li:hover {
   border-bottom: 1px solid orangered;
@@ -174,13 +209,20 @@ ul {
     border-top: 1px solid orangered;
     border-bottom: 1px solid orangered;
     border-radius: 5px; */
-    display: none;
+    display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 1em;
     margin-top: -2.7em;
-    background: rgb(242, 242, 242);
+    /* background: rgb(242, 242, 242); */
     border-radius: 5px;
     width: 80%;
+    position: absolute;
+    right: 100%;
+    top: 30%;
+    justify-content: center;
+    align-items: flex-end;
+    box-shadow: 1px 3px 5px 0px rgb(155, 157, 159);
   }
   .side-bar > li:hover {
     border-bottom: none;
@@ -192,7 +234,8 @@ ul {
     z-index: 2;
   }
   .side-bar > li > span {
-    display: none;
+    display: block;
+    font-size: 0.01em;
   }
   #navi-toggle {
     visibility: visible;
@@ -203,7 +246,11 @@ ul {
   }
   .show {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    right: 85%;
+  }
+  .rotate {
+    transform: scaleY(-1.2);
   }
   /* .change {
     rotate: 45deg;
@@ -215,11 +262,15 @@ ul {
   .side-bar > li {
     margin-top: 0;
     width: 14%;
+    margin-bottom: 1em;
   }
   .sc-parent {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 87%;
+    margin-right: 0;
+    margin-left: 13%;
   }
   .sb-parent {
     display: flex;

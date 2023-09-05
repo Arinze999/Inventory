@@ -794,4 +794,5 @@ numberInputs.forEach(function (number) {
 
 navToggle.addEventListener("click", () => {
   navBar.classList.toggle("show");
+  navToggle.classList.toggle("rotate");
 });

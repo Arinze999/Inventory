@@ -1,8 +1,3 @@
-// import {example} from "./createaccountscript.js";
-// console.log(example);
-
-// import {users} from "./createaccountscript.js";
-// console.log(users);
 alert("DEMO USERNAME = JOHN , PASSWORD = 0000");
 
 const userName = document.getElementById("user");
