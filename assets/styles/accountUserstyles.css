@@ -308,6 +308,22 @@ ul {
   .contact {
     padding-top: 1em;
   }
+  .number-purchase-id-container {
+    flex-direction: column;
+  }
+  .name-stock-vendor-container {
+    flex-direction: column;
+  }
+  .number-purchase-id-container > div > input {
+    margin-bottom: 0.5em;
+  }
+  .number-sale-container  {
+    width: 100%;
+    flex-direction: column;
+  }
+  .full-status-id-container {
+    flex-direction: column;
+  }
 }
 @media (max-width: 1400px) {
   .dash-list {
@@ -644,12 +660,12 @@ tr:nth-child(even) {
   display: flex;
   margin-left: 1em;
   margin-top: 1em;
-  width: 90%;
+  width: 100%;
 }
 
 .number-purchase-id-container > div {
   margin-right: 1em;
-  width: 32%;
+  width: 100%;
 }
 
 .number-purchase-id-container > div > label {
@@ -658,13 +674,13 @@ tr:nth-child(even) {
 }
 
 .number-purchase-id-container > div > input {
-  width: 90%;
+  width: 70%;
   padding-top: 0.3em;
   padding-bottom: 0.3em;
 }
 
 .number-purchase-id-container > div:last-child {
-  width: 26%;
+  width: 50%;
 }
 
 .name-stock-vendor-container {
@@ -676,11 +692,11 @@ tr:nth-child(even) {
 
 .name-stock-vendor-container > div {
   margin-right: 1em;
-  width: 35%;
+  width: 70%;
 }
 
 .name-stock-vendor-container > div:nth-child(2) {
-  width: 25%;
+  width: 43%;
 }
 
 .name-stock-vendor-container > div:nth-child(2) > input {
@@ -708,7 +724,7 @@ tr:nth-child(even) {
   display: flex;
   margin-left: 1em;
   margin-top: 1em;
-  width: 100%;
+  width: 97%;
 }
 
 .quant-unit-total-container > div {
@@ -791,7 +807,7 @@ tr:nth-child(even) {
 
 .number-sale-container > div {
   margin-right: 1em;
-  width: 50%;
+  width: 100%;
 }
 
 .number-sale-container > div > label {
