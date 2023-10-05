@@ -1,3 +1,24 @@
+import { useLoggedInUser } from "./createaccountscript.js";
+import { onlineGuest } from "./createaccountscript.js";
+
+var onlineUser = JSON.parse(localStorage.getItem("onlineUser"));
+
+// Check if there's an online user if not then it is a guest
+if (!onlineUser) {
+  onlineUser = onlineGuest();
+}
+
+console.log(onlineUser);
+
+// var guestUser = onlineGuest();
+// console.log(guestUser);
+
+//online user indicators
+const displayUsername = document.getElementById("dis-user");
+
+//Function to display respective inicators
+displayUsername.innerText = onlineUser.Username.toUpperCase();
+
 // different tabs
 const dashBoardTab = document.getElementById("dash");
 const itemsTab = document.getElementById("item");
