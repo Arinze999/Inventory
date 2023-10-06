@@ -254,7 +254,7 @@ if (incomingUserName && incomingPassword) {
       );
       if (loggedInUser) {
         useLoggedInUser(loggedInUser);
-        alert("LOGIN SUCCESSFULL")
+        alert("LOGIN SUCCESSFULL");
         window.location.href = portalTo;
       } else if (incorrectPassword) {
         alert(
