@@ -169,25 +169,23 @@ if (createButton) {
     } else if (passWordStrent.innerText == "weak") {
       alert("PASSWORD TOO WEAK");
     } else if (test == true) {
-      alert("already");
+      alert("USER/EMAIL/STORE ALREADY EXISTING");
     } else {
       users.push(userDetails);
       localStorage.setItem("userRaw", JSON.stringify(users));
       regUsers = JSON.parse(localStorage.getItem("userRaw"));
       console.log(regUsers);
       alert("ACOUNT CREATED!");
-        fullName.value = "" 
-        userName.value = "" 
-        storeName.value = "" 
-        email.value = "" 
-        passWord.value = "" 
-        confirmPassword.value = ""
-        passWordStrent.innerHTML = ""
+      fullName.value = "";
+      userName.value = "";
+      storeName.value = "";
+      email.value = "";
+      passWord.value = "";
+      confirmPassword.value = "";
+      passWordStrent.innerHTML = "";
     }
   });
 }
-
-console.log(regUsers);
 console.log(users);
 
 // Login code from here down
@@ -209,7 +207,7 @@ if (guestLoginBtn) {
 //Guest object function(this replaces the user in local storage and overwrites with guest Obj)
 function onlineGuest() {
   removeUser();
-  var userGuest = { Username: "Guest" };
+  var userGuest = { Username: "Guest", Storename: "Guest" };
   localStorage.setItem("guestObj", JSON.stringify(userGuest));
   return userGuest;
 }
@@ -244,12 +242,12 @@ if (incomingUserName && incomingPassword) {
     if (regUsers) {
       loggedInUser = regUsers.find(
         (each) =>
-          each.Username == incomingUserName.value &&
+          each.Username.toLowerCase() == incomingUserName.value.toLowerCase() &&
           each.PassWord == incomingPassword.value
       );
       var incorrectPassword = regUsers.find(
         (each) =>
-          each.Username == incomingUserName.value &&
+          each.Username.toLowerCase() == incomingUserName.value.toLowerCase() &&
           each.PassWord != incomingPassword.value
       );
       if (loggedInUser) {
