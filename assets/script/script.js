@@ -2,16 +2,26 @@ import { useLoggedInUser } from "./createaccountscript.js";
 import { onlineGuest } from "./createaccountscript.js";
 
 var onlineUser = JSON.parse(localStorage.getItem("onlineUser"));
-
+var guest = onlineGuest();
 // Check if there's an online user if not then it is a guest
 if (!onlineUser) {
-  onlineUser = onlineGuest();
+  onlineUser = guest;
 }
-console.log(onlineUser);
+
+// onlineUser.state = localStorage.getItem("state"); work on how to keep a user logged in even after refresh
+// console.log(onlineUser);
+// console.log(guest);
 
 //online user indicators
 const displayUsername = document.getElementById("dis-user");
 const displayShop = document.getElementById("dis-shop");
+
+//Log Out Button
+const logOut = document
+  .getElementById("log-out-out")
+  .addEventListener("click", () => {
+    localStorage.removeItem("state");
+  });
 
 //Function to display respective inicators
 displayUsername.innerText = onlineUser.Username.toUpperCase();
@@ -137,7 +147,8 @@ onlineUser.vendorData = JSON.parse(localStorage.getItem("vendorRough")) || [];
 //Functions to save Inventory Data to an Object and push into the corresponding Array
 function itemDataObj() {
   return {
-    id: onlineUser.id,
+    id: onlineUser.id || onlineUser.Username,
+    serial: onlineUser.itemsData.length,
     number: itemNumber.value,
     productID: itemProductId.value,
     name: itemName.value,
@@ -151,7 +162,8 @@ function itemDataObj() {
 
 function itemPurchaseObj() {
   return {
-    id: onlineUser.id,
+    id: onlineUser.id || onlineUser.Username,
+    serial: onlineUser.purchaseData.length,
     number: purchaseNumber.value,
     date: purchaseDate.value,
     purchaseID: purchaseId.value,
@@ -166,7 +178,8 @@ function itemPurchaseObj() {
 
 function itemSaleObj() {
   return {
-    id: onlineUser.id,
+    id: onlineUser.id || onlineUser.Username,
+    serial: onlineUser.saleData.length,
     number: saleNumber.value,
     saleID: saleId.value,
     name: saleName.value,
@@ -181,7 +194,8 @@ function itemSaleObj() {
 
 function vendorObj() {
   return {
-    id: onlineUser.id,
+    id: onlineUser.id || onlineUser.Username,
+    serial: onlineUser.vendorData.length,
     name: vendorName.value,
     status: vendorStatus.value,
     vendorID: vendorId.value,
@@ -217,6 +231,17 @@ function itemSearchContent() {
       itemData7.innerHTML = each.unitprice;
       let itemData8 = document.createElement("td");
       itemData8.innerHTML = each.description;
+      let delcontain = document.createElement("td");
+      delcontain.classList.add("del-icon");
+      let del = document.createElement("i");
+      del.classList.add("fa-solid", "fa-trash", "fa-lg");
+      delcontain.appendChild(del);
+
+      delcontain.addEventListener("click", () => {
+        searchTable.removeChild(itemRows);
+        itemRough.splice(each.serial, 1);
+        localStorage.setItem("itemRough", JSON.stringify(itemRough));
+      });
 
       itemRows.appendChild(itemData1);
       itemRows.appendChild(itemData2);
@@ -226,6 +251,50 @@ function itemSearchContent() {
       itemRows.appendChild(itemData6);
       itemRows.appendChild(itemData7);
       itemRows.appendChild(itemData8);
+      itemRows.appendChild(delcontain);
+
+      searchTable.appendChild(itemRows);
+    } else if (each.id == onlineUser.Username) {
+      let itemRows = document.createElement("tr");
+      itemRows.classList.add("data-row");
+
+      let itemData1 = document.createElement("td");
+      itemData1.innerHTML = each.number;
+      let itemData2 = document.createElement("td");
+      itemData2.innerHTML = each.productID;
+      let itemData3 = document.createElement("td");
+      itemData3.innerHTML = each.name;
+      let itemData4 = document.createElement("td");
+      itemData4.innerHTML = each.status;
+      let itemData5 = document.createElement("td");
+      itemData5.innerHTML = each.quantity;
+      let itemData6 = document.createElement("td");
+      itemData6.innerHTML = each.discount;
+      let itemData7 = document.createElement("td");
+      itemData7.innerHTML = each.unitprice;
+      let itemData8 = document.createElement("td");
+      itemData8.innerHTML = each.description;
+      let delcontain = document.createElement("td");
+      delcontain.classList.add("del-icon");
+      let del = document.createElement("i");
+      del.classList.add("fa-solid", "fa-trash", "fa-lg");
+      delcontain.appendChild(del);
+
+      delcontain.addEventListener("click", () => {
+        searchTable.removeChild(itemRows);
+        itemRough.splice(each.serial, 1);
+        localStorage.setItem("itemRough", JSON.stringify(itemRough));
+      });
+
+      itemRows.appendChild(itemData1);
+      itemRows.appendChild(itemData2);
+      itemRows.appendChild(itemData3);
+      itemRows.appendChild(itemData4);
+      itemRows.appendChild(itemData5);
+      itemRows.appendChild(itemData6);
+      itemRows.appendChild(itemData7);
+      itemRows.appendChild(itemData8);
+      itemRows.appendChild(delcontain);
 
       searchTable.appendChild(itemRows);
     }
@@ -259,6 +328,17 @@ function purchaseContent() {
       purchaseData8.innerHTML = each.unitcost;
       let purchaseData9 = document.createElement("td");
       purchaseData9.innerHTML = each.totalcost;
+      let delcontain = document.createElement("td");
+      delcontain.classList.add("del-icon");
+      let del = document.createElement("i");
+      del.classList.add("fa-solid", "fa-trash", "fa-lg");
+      delcontain.appendChild(del);
+
+      delcontain.addEventListener("click", () => {
+        purchasemainTable.removeChild(purchaseRows);
+        purchaseRough.splice(each.serial, 1);
+        localStorage.setItem("purchaseRough", JSON.stringify(purchaseRough));
+      });
 
       purchaseRows.appendChild(purchaseData1);
       purchaseRows.appendChild(purchaseData2);
@@ -269,6 +349,55 @@ function purchaseContent() {
       purchaseRows.appendChild(purchaseData7);
       purchaseRows.appendChild(purchaseData8);
       purchaseRows.appendChild(purchaseData9);
+      purchaseRows.appendChild(delcontain);
+
+      purchasemainTable.appendChild(purchaseRows);
+    } else if (each.id == onlineUser.Username) {
+      let purchasemainTable = document.getElementById("p-main-table");
+
+      let purchaseRows = document.createElement("tr");
+      purchaseRows.classList.add("data-row");
+
+      let purchaseData1 = document.createElement("td");
+      purchaseData1.innerText = each.number;
+      let purchaseData2 = document.createElement("td");
+      purchaseData2.innerText = each.date;
+      let purchaseData3 = document.createElement("td");
+      purchaseData3.innerHTML = each.purchaseID;
+      let purchaseData4 = document.createElement("td");
+      purchaseData4.innerHTML = each.name;
+      let purchaseData5 = document.createElement("td");
+      purchaseData5.innerHTML = each.stock;
+      let purchaseData6 = document.createElement("td");
+      purchaseData6.innerHTML = each.vendor;
+      let purchaseData7 = document.createElement("td");
+      purchaseData7.innerHTML = each.quantity;
+      let purchaseData8 = document.createElement("td");
+      purchaseData8.innerHTML = each.unitcost;
+      let purchaseData9 = document.createElement("td");
+      purchaseData9.innerHTML = each.totalcost;
+      let delcontain = document.createElement("td");
+      delcontain.classList.add("del-icon");
+      let del = document.createElement("i");
+      del.classList.add("fa-solid", "fa-trash", "fa-lg");
+      delcontain.appendChild(del);
+
+      delcontain.addEventListener("click", () => {
+        purchasemainTable.removeChild(purchaseRows);
+        purchaseRough.splice(each.serial, 1);
+        localStorage.setItem("purchaseRough", JSON.stringify(purchaseRough));
+      });
+
+      purchaseRows.appendChild(purchaseData1);
+      purchaseRows.appendChild(purchaseData2);
+      purchaseRows.appendChild(purchaseData3);
+      purchaseRows.appendChild(purchaseData4);
+      purchaseRows.appendChild(purchaseData5);
+      purchaseRows.appendChild(purchaseData6);
+      purchaseRows.appendChild(purchaseData7);
+      purchaseRows.appendChild(purchaseData8);
+      purchaseRows.appendChild(purchaseData9);
+      purchaseRows.appendChild(delcontain);
 
       purchasemainTable.appendChild(purchaseRows);
     }
@@ -302,6 +431,17 @@ function saleContent() {
       saleData8.innerHTML = each.unitprice;
       let saleData9 = document.createElement("td");
       saleData9.innerHTML = each.totalprice;
+      let delcontain = document.createElement("td");
+      delcontain.classList.add("del-icon");
+      let del = document.createElement("i");
+      del.classList.add("fa-solid", "fa-trash", "fa-lg");
+      delcontain.appendChild(del);
+
+      delcontain.addEventListener("click", () => {
+        salemainTable.removeChild(saleRows);
+        saleRough.splice(each.serial, 1);
+        localStorage.setItem("saleRough", JSON.stringify(saleRough));
+      });
 
       saleRows.appendChild(saleData1);
       saleRows.appendChild(saleData2);
@@ -312,6 +452,55 @@ function saleContent() {
       saleRows.appendChild(saleData7);
       saleRows.appendChild(saleData8);
       saleRows.appendChild(saleData9);
+      saleRows.appendChild(delcontain);
+
+      salemainTable.appendChild(saleRows);
+    } else if (each.id == onlineUser.Username) {
+      let salemainTable = document.getElementById("s-main-table");
+
+      let saleRows = document.createElement("tr");
+      saleRows.classList.add("data-row");
+
+      let saleData1 = document.createElement("td");
+      saleData1.innerHTML = each.number;
+      let saleData2 = document.createElement("td");
+      saleData2.innerHTML = each.saleID;
+      let saleData3 = document.createElement("td");
+      saleData3.innerHTML = each.name;
+      let saleData4 = document.createElement("td");
+      saleData4.innerHTML = each.date;
+      let saleData5 = document.createElement("td");
+      saleData5.innerHTML = each.stock;
+      let saleData6 = document.createElement("td");
+      saleData6.innerHTML = each.discount;
+      let saleData7 = document.createElement("td");
+      saleData7.innerHTML = each.quantity;
+      let saleData8 = document.createElement("td");
+      saleData8.innerHTML = each.unitprice;
+      let saleData9 = document.createElement("td");
+      saleData9.innerHTML = each.totalprice;
+      let delcontain = document.createElement("td");
+      delcontain.classList.add("del-icon");
+      let del = document.createElement("i");
+      del.classList.add("fa-solid", "fa-trash", "fa-lg");
+      delcontain.appendChild(del);
+
+      delcontain.addEventListener("click", () => {
+        salemainTable.removeChild(saleRows);
+        saleRough.splice(each.serial, 1);
+        localStorage.setItem("saleRough", JSON.stringify(saleRough));
+      });
+
+      saleRows.appendChild(saleData1);
+      saleRows.appendChild(saleData2);
+      saleRows.appendChild(saleData3);
+      saleRows.appendChild(saleData4);
+      saleRows.appendChild(saleData5);
+      saleRows.appendChild(saleData6);
+      saleRows.appendChild(saleData7);
+      saleRows.appendChild(saleData8);
+      saleRows.appendChild(saleData9);
+      saleRows.appendChild(delcontain);
 
       salemainTable.appendChild(saleRows);
     }
@@ -345,6 +534,17 @@ function vendorContent() {
       vendorData8.innerHTML = each.address2;
       let vendorData9 = document.createElement("td");
       vendorData9.innerHTML = each.city;
+      let delcontain = document.createElement("td");
+      delcontain.classList.add("del-icon");
+      let del = document.createElement("i");
+      del.classList.add("fa-solid", "fa-trash", "fa-lg");
+      delcontain.appendChild(del);
+
+      delcontain.addEventListener("click", () => {
+        vendormainTable.removeChild(vendorRows);
+        vendorRough.splice(each.serial, 1);
+        localStorage.setItem("vendorRough", JSON.stringify(vendorRough));
+      });
 
       vendorRows.appendChild(vendorData1);
       vendorRows.appendChild(vendorData2);
@@ -355,14 +555,71 @@ function vendorContent() {
       vendorRows.appendChild(vendorData7);
       vendorRows.appendChild(vendorData8);
       vendorRows.appendChild(vendorData9);
+      vendorRows.appendChild(delcontain);
 
       vendormainTable.appendChild(vendorRows);
+
+      let purchaseVendorOption = document.createElement("option");
+      purchaseVendorOption.value = each.name;
+      purchaseVendorOption.innerText = each.name;
+      purchaseVendor.appendChild(purchaseVendorOption);
+    } else if (each.id == onlineUser.Username) {
+      let vendormainTable = document.getElementById("v-main-table");
+
+      let vendorRows = document.createElement("tr");
+      vendorRows.classList.add("data-row");
+
+      let vendorData1 = document.createElement("td");
+      vendorData1.innerHTML = each.name;
+      let vendorData2 = document.createElement("td");
+      vendorData2.innerHTML = each.status;
+      let vendorData3 = document.createElement("td");
+      vendorData3.innerHTML = each.vendorID;
+      let vendorData4 = document.createElement("td");
+      vendorData4.innerHTML = each.phone1;
+      let vendorData5 = document.createElement("td");
+      vendorData5.innerHTML = each.phone2;
+      let vendorData6 = document.createElement("td");
+      vendorData6.innerHTML = each.email;
+      let vendorData7 = document.createElement("td");
+      vendorData7.innerHTML = each.address1;
+      let vendorData8 = document.createElement("td");
+      vendorData8.innerHTML = each.address2;
+      let vendorData9 = document.createElement("td");
+      vendorData9.innerHTML = each.city;
+      let delcontain = document.createElement("td");
+      delcontain.classList.add("del-icon");
+      let del = document.createElement("i");
+      del.classList.add("fa-solid", "fa-trash", "fa-lg");
+      delcontain.appendChild(del);
+
+      delcontain.addEventListener("click", () => {
+        vendormainTable.removeChild(vendorRows);
+        vendorRough.splice(each.serial, 1);
+        localStorage.setItem("vendorRough", JSON.stringify(vendorRough));
+      });
+
+      vendorRows.appendChild(vendorData1);
+      vendorRows.appendChild(vendorData2);
+      vendorRows.appendChild(vendorData3);
+      vendorRows.appendChild(vendorData4);
+      vendorRows.appendChild(vendorData5);
+      vendorRows.appendChild(vendorData6);
+      vendorRows.appendChild(vendorData7);
+      vendorRows.appendChild(vendorData8);
+      vendorRows.appendChild(vendorData9);
+      vendorRows.appendChild(delcontain);
+
+      vendormainTable.appendChild(vendorRows);
+
+      let purchaseVendorOption = document.createElement("option");
+      purchaseVendorOption.value = each.name;
+      purchaseVendorOption.innerText = each.name;
+      purchaseVendor.appendChild(purchaseVendorOption);
     }
   });
 }
 vendorContent();
-
-
 
 // nav bar tabs click functions
 dashBoardTab.addEventListener("click", () => {
@@ -1013,8 +1270,8 @@ addVendor.addEventListener("click", () => {
 
   // add vendorName to list of vendors to select on the purchase tab
   let purchaseVendorOption = document.createElement("option");
-  purchaseVendorOption.value = vendorName.value;
-  purchaseVendorOption.innerText = vendorName.value;
+  purchaseVendorOption.value = onlineUser.vendorData.name;
+  purchaseVendorOption.innerText = onlineUser.vendorData.name;
   purchaseVendor.appendChild(purchaseVendorOption);
 
   vendorName.value = "";
@@ -1060,3 +1317,5 @@ navToggle.addEventListener("click", () => {
   navBar.classList.toggle("show");
   navToggle.classList.toggle("rotate");
 });
+
+// Function to delete info from table and localstorage simultenously

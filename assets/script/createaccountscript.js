@@ -254,6 +254,7 @@ if (incomingUserName && incomingPassword) {
         useLoggedInUser(loggedInUser);
         alert("LOGIN SUCCESSFULL");
         window.location.href = portalTo;
+        localStorage.setItem("state", true);
       } else if (incorrectPassword) {
         alert(
           `USER FOUND: ${incorrectPassword.Username} BUT INCORRECT PASSWORD`

@@ -1168,3 +1168,21 @@ tr:nth-child(even) {
     background-color: brown;
   }
 }
+
+.comot {
+  width: fit-content;
+  padding: 1px;
+}
+
+.del-icon {
+text-align: center;
+}
+
+tr:hover > .del-icon {
+  background-color: white;
+  color: black;
+}
+
+.del-icon:hover {
+  cursor: pointer;
+}
