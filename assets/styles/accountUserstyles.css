@@ -164,6 +164,7 @@ ul {
 .sc-parent {
   padding-right: 2em;
   padding-left: 2em;
+  height: fit-content;
 }
 
 .select-container {
@@ -199,6 +200,46 @@ ul {
   margin-top: 0.3em;
   color: rgb(41, 150, 193);
   font-weight: 600;
+}
+
+footer {
+  background: linear-gradient(to bottom, rgb(8, 27, 43), rgb(55, 78, 100));
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+}
+.social > li {
+  padding: 1em;
+}
+.social > li > a {
+  color: rgb(200, 200, 225);
+}
+.social > li > a:hover {
+  color: white;
+}
+.copy-write {
+  color: white;
+}
+.contact {
+  padding-right: 3em;
+}
+.contact > a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+.contact > a:hover {
+  text-decoration: underline;
+  color: white;
 }
 
 /* media querries style */
@@ -271,6 +312,7 @@ ul {
     width: 87%;
     margin-right: 0;
     margin-left: 13%;
+    margin-bottom: 10em;
   }
   .sb-parent {
     display: flex;
@@ -293,20 +335,20 @@ ul {
   .dash-list > li {
     margin-top: 2em;
   }
-  .social,
-  .copy-write,
-  .contact {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  footer {
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
   }
   .social {
-    margin-left: 30%;
-    margin-right: 40%;
+    display: flex;
+    flex-direction: row;
+  }
+  .copy-write {
+    padding-left: 3em;
   }
   .contact {
-    padding-top: 1em;
+    padding-left: 3em;
   }
   .number-purchase-id-container {
     flex-direction: column;
@@ -322,6 +364,9 @@ ul {
     flex-direction: column;
   }
   .full-status-id-container {
+    flex-direction: column;
+  }
+  .vendor-contact-container {
     flex-direction: column;
   }
 }
@@ -381,42 +426,6 @@ ul {
   margin-left: 1em;
 }
 
-.footer {
-  /* background: linear-gradient(to bottom, rgb(36, 36, 79), rgb(81, 81, 114)); */
-  /* background-image: linear-gradient(to bottom, rgb(25, 25, 223), rgb(1, 1, 29)); */
-  background: linear-gradient(to bottom, rgb(8, 27, 43), rgb(55, 78, 100));
-  color: white;
-  position: relative;
-  width: 100%;
-  bottom: 0;
-  /* z-index: 1; */
-  right: 0;
-  margin-top: 30em;
-}
-
-.social > li {
-  display: flex;
-  padding: 0.5em;
-  color: white;
-}
-
-.social > li > a {
-  color: white;
-}
-
-.contact {
-  display: flex;
-  margin-right: 2em;
-}
-
-.contact > a {
-  color: white;
-  text-decoration: none;
-}
-
-.contact > a:hover {
-  text-decoration: underline;
-}
 
 /* item tab styles */
 #item-add-container {
