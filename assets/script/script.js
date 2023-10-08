@@ -2,11 +2,11 @@ import { useLoggedInUser } from "./createaccountscript.js";
 import { onlineGuest } from "./createaccountscript.js";
 
 var onlineUser = JSON.parse(localStorage.getItem("onlineUser"));
-var guest = onlineGuest();
 // Check if there's an online user if not then it is a guest
 if (!onlineUser) {
-  onlineUser = guest;
+  onlineUser = onlineGuest();
 }
+console.log(onlineUser);
 
 // onlineUser.state = localStorage.getItem("state"); work on how to keep a user logged in even after refresh
 // console.log(onlineUser);
