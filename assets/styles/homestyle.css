@@ -14,7 +14,7 @@ a {
 
 .transparency {
   background-color: rgba(0, 0, 0, 0.6);
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 
@@ -169,6 +169,7 @@ footer {
 @media (max-width: 767px) {
   .home-list {
     margin-top: 1em;
+    padding-bottom: 15em;
   }
   .banner {
     margin-top: 8em;
@@ -182,12 +183,14 @@ footer {
   }
   .social {
     flex-direction: row;
+    padding: 0;
   }
   .copy-write {
-    padding-left: 3em;
+    padding-left: 1em;
+    margin-bottom: 1em;
   }
   .contact {
-    padding-left: 3em;
+    padding-left: 1em;
   }
   .nav {
     display: flex;
