@@ -55,6 +55,8 @@ const salesTabcontent = document.getElementById("sales-container");
 const vendorTabcontent = document.getElementById("vendor-container");
 const recordTabcontent = document.getElementById("records-container");
 const profileTabcontent = document.getElementById("profile-container");
+const guestTabContent = document.getElementById("show-guest");
+const userTabContent = document.querySelector(".user-card");
 
 // item dataTab details
 let itemNumber = document.getElementById("serial");
@@ -136,7 +138,8 @@ const myPassword = document.getElementById("password-here");
 
 //Guest profileTab content
 if (!onlineUser.PassWord) {
-  profileTabcontent.innerHTML = "<h2>GUEST</h2>";
+  userTabContent.style.display = "none";
+  guestTabContent.style.display = "initial";
 }
 
 //User profileTab buttons and Functions
