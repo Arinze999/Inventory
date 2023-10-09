@@ -169,7 +169,7 @@ footer {
 @media (max-width: 767px) {
   .home-list {
     margin-top: 1em;
-    padding-bottom: 15em;
+    display: none;
   }
   .banner {
     margin-top: 8em;

@@ -136,6 +136,10 @@ const myStorename = document.getElementById("storename-here");
 const myEmail = document.getElementById("email-here");
 const myPassword = document.getElementById("password-here");
 
+//Dashboard info displays
+const getalldashboard = document.querySelectorAll(".statistics");
+const dashItems = Array.from(getalldashboard);
+
 //Guest profileTab content
 if (!onlineUser.PassWord) {
   userTabContent.style.display = "none";
