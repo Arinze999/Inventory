@@ -202,7 +202,7 @@ if(mySaveBtn) {
       // Save the updated array of users back to local storage
       localStorage.setItem("userRaw", JSON.stringify(usersUpdate));
     }
-    alert("SAVED!");
+    alert("SAVED! refresh page for optimum sync");
     myFullname.classList.remove("edit-click");
     myUsername.classList.remove("edit-click");
     myStorename.classList.remove("edit-click");
@@ -1115,7 +1115,7 @@ addItem.addEventListener("click", () => {
   itemDescription.value = "";
   itemProductId.value = "";
 
-  alert("ITEM SAVED!");
+  alert("ITEM SAVED! refresh page for optimum sync");
 });
 // clearitemForm button function
 clearitemForm.addEventListener("click", () => {
@@ -1324,7 +1324,7 @@ addSale.addEventListener("click", () => {
   saleunitPrice.value = "";
   saleTotal.value = "";
 
-  alert("SALE ADDED!");
+  alert("SALE ADDED! refresh page for optimum sync");
 });
 // clearsaleForm function
 clearsaleForm.addEventListener("click", () => {
@@ -1432,7 +1432,7 @@ addVendor.addEventListener("click", () => {
   vendorAddress2.value = "";
   vendorCity.value = "";
 
-  alert("VENDOR ADDED!");
+  alert("VENDOR ADDED! refresh page for optimum sync");
 });
 // clearvenforForm function
 clearvendorForm.addEventListener("click", () => {
