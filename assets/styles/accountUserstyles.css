@@ -47,9 +47,15 @@ textarea {
   /* background: linear-gradient(to bottom, rgb(36, 36, 79), rgb(81, 81, 114)); */
   background: linear-gradient(to bottom, rgb(8, 27, 43), rgb(55, 78, 100));
   color: white;
-  margin-left: 1%;
-  margin-right: 1%;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.move {
+  margin-top: 8em;
 }
 
 .admin > a {
@@ -118,6 +124,7 @@ ul {
   color: rgb(109, 109, 109);
   transition-duration: 0.8s;
   transition-property: all;
+  position: fixed;
 }
 
 #navi-toggle2 {
@@ -127,6 +134,7 @@ ul {
   color: rgb(109, 109, 109);
   transition-duration: 0.5s;
 }
+
 
 .side-bar > li {
   margin-top: 1em;
@@ -242,6 +250,76 @@ footer {
   color: white;
 }
 
+/* User Profile styles */
+
+#profile-container {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-card {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  border-radius: 10px;
+  margin: 1em;
+  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.45);
+}
+
+.user-img{
+  text-align: center;
+}
+
+.user-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-details > input {
+  border: none;
+  border-bottom: 1px solid black;
+  border-bottom-left-radius: 10px;
+  outline: invert;
+  outline-color: black;
+  width: 70%;
+  padding: 0.5em;
+  font-size: large;
+  margin: 0.3em;
+}
+
+.edit-click {
+  background-color: rgba(229, 229, 166, 0.144);
+}
+
+.user-details > button {
+  padding: 0.5em;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin: 0.3em;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+}
+
+.user-details > button:hover {
+  transform: scale(1.2);
+}
+
+#u-edit {
+  background-color: skyblue;
+}
+
+#u-save {
+  background-color: blue;
+}
+
+
 /* media querries style */
 @media screen and (max-width: 767px) {
   .side-bar {
@@ -258,9 +336,9 @@ footer {
     /* background: rgb(242, 242, 242); */
     border-radius: 5px;
     width: 80%;
-    position: absolute;
+    position: fixed;
     right: 100%;
-    top: 30%;
+    top: 25%;
     justify-content: center;
     align-items: flex-end;
     box-shadow: 1px 3px 5px 0px rgb(155, 157, 159);
@@ -369,8 +447,14 @@ footer {
   .vendor-contact-container {
     flex-direction: column;
   }
+  .user-card {
+    width: 100%;
+  }
+  .user-details > input {
+    width: 100%;
+  }
 }
-@media (max-width: 1400px) {
+@media screen and (min-width: 768px) and (max-width: 1400px) {
   .dash-list {
     flex-direction: column;
     justify-content: center;
@@ -378,6 +462,18 @@ footer {
   }
   .dash-list > li {
     margin-top: 2em;
+  }
+  .user-card {
+    width: 100%;
+  }
+  .user-details > input {
+    width: 40%;
+  }
+  .sc-parent {
+    margin-bottom: 30em;
+  }
+  .side-bar {
+    position: fixed;
   }
 }
 
@@ -1127,56 +1223,9 @@ tr:nth-child(even) {
   width: 25%;
 }
 
-/* pop-up modal styles */
-/* .pop-up {
-  background-color: rgb(242,242,242);
-  border-radius: 10px;
-  margin-top: -30em;
-  margin-left: 40em;
-  display: flex;
-  width: fit-content;
-  height: fit-content;
-  box-shadow:  0px 4px 8px rgba(0, 0, 0, 0.6);
-}
 
-.pop-up>div:first-child {
-  margin-top: 30%;
-  font-size: 1.5em;
-  font-weight: 600;
-  color: rgb(123,215,7);
-}
 
-.pop-up>div:nth-child(2){
-  width: 10em;
-  height: auto;
-}
 
-.pop-up>div>img {
-  width: 100%;
-} */
-
-@keyframes navAnimation {
-  20% {
-    opacity: 20%;
-    background-color: red;
-  }
-  40% {
-    opacity: 40%;
-    background-color: blue;
-  }
-  60% {
-    opacity: 60%;
-    background-color: yellow;
-  }
-  80% {
-    opacity: 80%;
-    background-color: aqua;
-  }
-  100% {
-    opacity: 100%;
-    background-color: brown;
-  }
-}
 
 .comot {
   width: fit-content;

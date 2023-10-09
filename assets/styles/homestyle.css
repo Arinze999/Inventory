@@ -178,6 +178,7 @@ footer {
     justify-content: start;
     align-items: start;
     flex-direction: column;
+    padding-bottom: 1em;
   }
   .social {
     flex-direction: row;

@@ -21,6 +21,21 @@ var usersCounter = () => {
 // Variable to determine an existing user
 var test;
 
+//Condition for valid username
+if (userName) {
+  userName.addEventListener("change", () => {
+    if (userName.value.includes(" " || "*")) {
+      userName.setAttribute("title", "No space or * allowed");
+      userName.style.borderColor = "red";
+      userName.style.backgroundColor = "rgba(255,200,61,0.2)";
+    } else {
+      userName.removeAttribute("title");
+      userName.style.borderColor = "initial";
+      userName.style.backgroundColor = "initial";
+    }
+  });
+}
+
 // conditions for the email detail inputs
 if (email) {
   email.addEventListener("change", () => {
@@ -97,42 +112,43 @@ if (passWord) {
 
 // to loop through and get each already existing userDetails within the user
 function myFunction(userDetails) {
-  if (regUsers != null) {
-    for (let i = 0; i < regUsers.length; i++) {
-      var existingUsers = regUsers[i];
-      console.log(existingUsers);
-
-      if (
-        existingUsers.Username == userDetails.Username &&
-        existingUsers.Email == userDetails.Email
-      ) {
-        console.log("this user exists");
-        test = true;
-      } else if (
-        existingUsers.Username == userDetails.Username &&
-        existingUsers.Email !== userDetails.Email
-      ) {
-        console.log("this username has been taken");
-        test = true;
-      } else if (
-        existingUsers.Username !== userDetails.Username &&
-        existingUsers.Email == userDetails.Email
-      ) {
-        console.log("this Email is already registered");
-        test = true;
-      } else if (existingUsers.storename == userDetails.Storename) {
-        console.log("this store has been taken");
-        test = true;
-      } else {
-        console.log("valid user!");
-        test = false;
+  if (
+   !( userDetails.Fullname == "" ||
+    userDetails.Username == "" ||
+    userDetails.Storename == "" ||
+    userDetails.Email == "" ||
+    userDetails.PassWord == "" ||
+    userDetails.Confirmpassword == "")
+  ) {
+    if (regUsers != null) {
+      for (let i = 0; i < regUsers.length; i++) {
+        var existingUsers = regUsers[i];
+        if (
+          existingUsers.Username == userDetails.Username &&
+          existingUsers.Email == userDetails.Email
+        ) {
+          test = true;
+        } else if (
+          existingUsers.Username == userDetails.Username &&
+          existingUsers.Email !== userDetails.Email
+        ) {
+          test = true;
+        } else if (
+          existingUsers.Username !== userDetails.Username &&
+          existingUsers.Email == userDetails.Email
+        ) {
+          test = true;
+        } else if (existingUsers.storename == userDetails.Storename) {
+          test = true;
+        } else {
+          test = false;
+        }
       }
+    } else {
+      test = false;
     }
-  } else {
-    console.log("valid user!");
-    test = false;
+    // console.log(test);
   }
-  console.log(test);
 }
 
 // create button function
@@ -157,6 +173,8 @@ if (createButton) {
       userDetails.Confirmpassword == ""
     ) {
       alert("PLEASE FILL ALL DETAILS!");
+    } else if (userDetails.Username.includes(" " || "*")) {
+      alert("WRONG USERNAME FORMAT");
     } else if (!userDetails.Email.includes("@", ".com")) {
       alert("PLEASE WRITE YOUR EMAIL PROPERLY");
     } else if (
@@ -174,7 +192,7 @@ if (createButton) {
       users.push(userDetails);
       localStorage.setItem("userRaw", JSON.stringify(users));
       regUsers = JSON.parse(localStorage.getItem("userRaw"));
-      console.log(regUsers);
+      // console.log(regUsers);
       alert("ACOUNT CREATED!");
       fullName.value = "";
       userName.value = "";

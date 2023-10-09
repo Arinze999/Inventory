@@ -10,7 +10,7 @@
     <title>Inventory</title>
   </head>
   <body>
-    <div class="jumbotron navbar-top my-4">
+    <div class="jumbotron navbar-top">
       <div class="row pt-4 pb-3">
         <div class="col-md-3 text-center">
           <h4><span id="dis-shop"></span> Inventory System</h4>
@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row move">
       <div id="navi-toggle" ><i class="change fa-solid fa-bars fa-xl"></i></div>
       <!-- <i id="navi-toggle2" class="fa-solid fa-xmark fa-xl"></i> -->
       <div class="col-md-2 sb-parent">
@@ -36,6 +36,7 @@
           <li id="sale" class="text-center text-md-start"><span>Sale</span><i class="fa-solid fa-cart-shopping fa-xl"></i></li>
           <li id="vendor" class="text-center text-md-start"><span>Vendor</span><i class="fa-solid fa-users fa-xl"></i></li>
           <li id="record" class="text-center text-md-start"><span>Records</span><i class="fa-solid fa-clipboard-list fa-xl"></i></li>
+          <li id="u-profile" class="text-center text-md-start"><span>User Profile</span><i class="fa-solid fa-user fa-xl"></i></li>
         </ul>
       </div>
       <div class="col-md-10 sc-parent">
@@ -61,17 +62,6 @@
               <li><h3>Insights</h3><i class="fa-solid fa-chart-simple fa-2xl"></i><p class="display-5"></p></li>
               <li><h3>Support</h3><i class="fa-solid fa-headset fa-2xl"></i><p class="display-5"></p></li>
             </ul>
-
-            <!-- <div class="row">
-              <div class="col-md-4 per-tab">Total items</div>
-              <div class="col-md-4 per-tab">Total purchase</div>
-              <div class="col-md-4 per-tab">Total sales</div>
-            </div>
-            <div class="row">
-              <div class="col-md-4 per-tab">Reg. vendors</div>
-              <div class="col-md-4 per-tab">Insights</div>
-              <div class="col-md-4 per-tab">Support</div>
-            </div> -->
           </div>
 
           <div id="item-add-container">
@@ -411,7 +401,22 @@
               </div>
           </div>
 
-    
+          <div id="profile-container">
+            <div class="user-card">
+              <div class="user-img">
+                <img src="assets\jpegs\icons8-user-64.png" alt="user-img">
+              </div>
+              <div class="user-details">
+                <input id="fullname-here" type="text" readonly>
+                <input id="username-here" type="text" readonly>
+                <input id="storename-here" type="text" readonly>
+                <input id="email-here" type="text" readonly>
+                <input id="password-here" type="text" readonly>
+                <button id="u-edit">Edit <i class="fa-solid fa-pen-to-square"></i></button>
+                <button id="u-save">Save <i class="fa-solid fa-check"></i></button>
+              </div>
+            </div>
+          </div>
 
 
 

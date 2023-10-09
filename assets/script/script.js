@@ -35,6 +35,7 @@ const vendorTab = document.getElementById("vendor");
 const salesTab = document.getElementById("sale");
 const searchTab = document.getElementById("search");
 const recordTab = document.getElementById("record");
+const profileTab = document.getElementById("u-profile");
 
 // tabs parameter containers
 const selectedTab = document.getElementById("selected-tab");
@@ -53,6 +54,7 @@ const purchaseTabcontent = document.getElementById("purchase-container");
 const salesTabcontent = document.getElementById("sales-container");
 const vendorTabcontent = document.getElementById("vendor-container");
 const recordTabcontent = document.getElementById("records-container");
+const profileTabcontent = document.getElementById("profile-container");
 
 // item dataTab details
 let itemNumber = document.getElementById("serial");
@@ -124,6 +126,90 @@ const recordIcon = document.getElementById("history-icon");
 let purchaseTable = document.getElementById("purchase-table");
 let salesTable = document.getElementById("sales-table");
 let vendorsTable = document.getElementById("vendors-table");
+
+//User profileTab details
+const myFullname = document.getElementById("fullname-here");
+const myUsername = document.getElementById("username-here");
+const myStorename = document.getElementById("storename-here");
+const myEmail = document.getElementById("email-here");
+const myPassword = document.getElementById("password-here");
+
+//Guest profileTab content
+if (!onlineUser.PassWord) {
+  profileTabcontent.innerHTML = "<h2>GUEST</h2>";
+}
+
+//User profileTab buttons and Functions
+const myEditBtn = document.getElementById("u-edit");
+
+if (myEditBtn) {
+  myEditBtn.addEventListener("click", () => {
+    // Make the input editable
+    myFullname.readOnly = false;
+    myUsername.readOnly = false;
+    myStorename.readOnly = false;
+    myEmail.readOnly = false;
+    myPassword.readOnly = false;
+
+    myFullname.classList.toggle("edit-click");
+    myUsername.classList.toggle("edit-click");
+    myStorename.classList.toggle("edit-click");
+    myEmail.classList.toggle("edit-click");
+    myPassword.classList.toggle("edit-click");
+  });
+}
+const mySaveBtn = document.getElementById("u-save");
+
+if(mySaveBtn) {
+  mySaveBtn.addEventListener("click", () => {
+    myFullname.readOnly = true;
+    myUsername.readOnly = true;
+    myStorename.readOnly = true;
+    myEmail.readOnly = true;
+    myPassword.readOnly = true;
+  
+    onlineUser.Fullname = myFullname.value;
+    onlineUser.Username = myUsername.value;
+    onlineUser.Storename = myStorename.value;
+    onlineUser.Email = myEmail.value;
+    onlineUser.PassWord = myPassword.value;
+    localStorage.setItem("onlineUser", JSON.stringify(onlineUser));
+    
+  
+    let usersUpdate = JSON.parse(localStorage.getItem("userRaw")) || [];
+  
+    // Find the index of the currently logged in user within the array
+    const loggedInUserIndex = usersUpdate.findIndex(
+      (user) => user.id === onlineUser.id
+    );
+  
+  
+  
+    if (loggedInUserIndex !== -1) {
+      usersUpdate[loggedInUserIndex].Fullname = myFullname.value;
+      usersUpdate[loggedInUserIndex].Username = myUsername.value;
+      usersUpdate[loggedInUserIndex].Storename = myStorename.value;
+      usersUpdate[loggedInUserIndex].Email = myEmail.value;
+      usersUpdate[loggedInUserIndex].Password = myPassword.value;
+  
+      // Save the updated array of users back to local storage
+      localStorage.setItem("userRaw", JSON.stringify(usersUpdate));
+    }
+    alert("SAVED!");
+    myFullname.classList.remove("edit-click");
+    myUsername.classList.remove("edit-click");
+    myStorename.classList.remove("edit-click");
+    myEmail.classList.remove("edit-click");
+    myPassword.classList.remove("edit-click");
+  });
+}
+
+//function to display details of user accordingly on the userprofile Tab
+myFullname.value = onlineUser.Fullname;
+myUsername.value = onlineUser.Username;
+myStorename.value = onlineUser.Storename;
+myEmail.value = onlineUser.Email;
+myPassword.value = onlineUser.PassWord;
 
 // nav toggle function
 const navToggle = document.getElementById("navi-toggle");
@@ -625,6 +711,8 @@ vendorContent();
 dashBoardTab.addEventListener("click", () => {
   dashBoardTab.style.backgroundColor = "orangered";
   dashBoardTab.style.color = "white";
+  profileTab.style.backgroundColor = "initial";
+  profileTab.style.color = "rgb(41, 150, 193)";
   itemsTab.style.backgroundColor = "initial";
   itemsTab.style.color = "rgb(41, 150, 193)";
   searchTab.style.backgroundColor = "initial";
@@ -653,11 +741,14 @@ dashBoardTab.addEventListener("click", () => {
   vendorsRecord.style.display = "none";
   recordTabcontent.style.display = "none";
   purchaseRecord.style.display = "none";
+  profileTabcontent.style.display = "none";
 });
 
 itemsTab.addEventListener("click", () => {
   itemsTab.style.backgroundColor = "orangered";
   itemsTab.style.color = "white";
+  profileTab.style.backgroundColor = "initial";
+  profileTab.style.color = "rgb(41, 150, 193)";
   dashBoardTab.style.backgroundColor = "initial";
   dashBoardTab.style.color = "rgb(41, 150, 193)";
   searchTab.style.backgroundColor = "initial";
@@ -684,11 +775,14 @@ itemsTab.addEventListener("click", () => {
   vendorsRecord.style.display = "none";
   recordTabcontent.style.display = "none";
   purchaseRecord.style.display = "none";
+  profileTabcontent.style.display = "none";
 });
 
 purchaseTab.addEventListener("click", () => {
   purchaseTab.style.backgroundColor = "orangered";
   purchaseTab.style.color = "white";
+  profileTab.style.backgroundColor = "initial";
+  profileTab.style.color = "rgb(41, 150, 193)";
   dashBoardTab.style.backgroundColor = "initial";
   dashBoardTab.style.color = "rgb(41, 150, 193)";
   itemsTab.style.backgroundColor = "initial";
@@ -714,11 +808,14 @@ purchaseTab.addEventListener("click", () => {
   vendorsRecord.style.display = "none";
   recordTabcontent.style.display = "none";
   purchaseRecord.style.display = "none";
+  profileTabcontent.style.display = "none";
 });
 
 vendorTab.addEventListener("click", () => {
   vendorTab.style.backgroundColor = "orangered";
   vendorTab.style.color = "white";
+  profileTab.style.backgroundColor = "initial";
+  profileTab.style.color = "rgb(41, 150, 193)";
   dashBoardTab.style.backgroundColor = "initial";
   dashBoardTab.style.color = "rgb(41, 150, 193)";
   itemsTab.style.backgroundColor = "initial";
@@ -744,11 +841,14 @@ vendorTab.addEventListener("click", () => {
   vendorsRecord.style.display = "none";
   recordTabcontent.style.display = "none";
   purchaseRecord.style.display = "none";
+  profileTabcontent.style.display = "none";
 });
 
 salesTab.addEventListener("click", () => {
   salesTab.style.backgroundColor = "orangered";
   salesTab.style.color = "white";
+  profileTab.style.backgroundColor = "initial";
+  profileTab.style.color = "rgb(41, 150, 193)";
   dashBoardTab.style.backgroundColor = "initial";
   dashBoardTab.style.color = "rgb(41, 150, 193)";
   itemsTab.style.backgroundColor = "initial";
@@ -774,11 +874,14 @@ salesTab.addEventListener("click", () => {
   vendorsRecord.style.display = "none";
   recordTabcontent.style.display = "none";
   purchaseRecord.style.display = "none";
+  profileTabcontent.style.display = "none";
 });
 
 searchTab.addEventListener("click", () => {
   searchTab.style.backgroundColor = "orangered";
   searchTab.style.color = "white";
+  profileTab.style.backgroundColor = "initial";
+  profileTab.style.color = "rgb(41, 150, 193)";
   dashBoardTab.style.backgroundColor = "initial";
   dashBoardTab.style.color = "rgb(41, 150, 193)";
   itemsTab.style.backgroundColor = "initial";
@@ -805,11 +908,14 @@ searchTab.addEventListener("click", () => {
   vendorsRecord.style.display = "none";
   recordTabcontent.style.display = "none";
   purchaseRecord.style.display = "none";
+  profileTabcontent.style.display = "none";
 });
 
 recordTab.addEventListener("click", () => {
   recordTab.style.backgroundColor = "orangered";
   recordTab.style.color = "white";
+  profileTab.style.backgroundColor = "initial";
+  profileTab.style.color = "rgb(41, 150, 193)";
   dashBoardTab.style.backgroundColor = "initial";
   dashBoardTab.style.color = "rgb(41, 150, 193)";
   itemsTab.style.backgroundColor = "initial";
@@ -835,7 +941,42 @@ recordTab.addEventListener("click", () => {
   salesRecord.style.display = "initial";
   vendorsRecord.style.display = "initial";
   recordTabcontent.style.display = "initial";
+  profileTabcontent.style.display = "none";
 });
+
+profileTab.addEventListener("click", () => {
+  profileTab.style.backgroundColor = "orangered";
+  profileTab.style.color = "white";
+  recordTab.style.backgroundColor = "initial";
+  recordTab.style.color = "rgb(41, 150, 193)";
+  dashBoardTab.style.backgroundColor = "initial";
+  dashBoardTab.style.color = "rgb(41, 150, 193)";
+  itemsTab.style.backgroundColor = "initial";
+  itemsTab.style.color = "rgb(41, 150, 193)";
+  searchTab.style.backgroundColor = "initial";
+  searchTab.style.color = "rgb(41, 150, 193)";
+  purchaseTab.style.backgroundColor = "initial";
+  purchaseTab.style.color = "rgb(41, 150, 193)";
+  salesTab.style.backgroundColor = "initial";
+  salesTab.style.color = "rgb(41, 150, 193)";
+  vendorTab.style.backgroundColor = "initial";
+  vendorTab.style.color = "rgb(41, 150, 193)";
+  selectedTab.innerText = "User";
+  indicateTab.innerHTML = "Profile";
+  dashBoardTabcontent.style.display = "none";
+  itemTabcontent.style.display = "none";
+  searchTabcontent.style.display = "none";
+  purchaseTabcontent.style.display = "none";
+  salesTabcontent.style.display = "none";
+  vendorTabcontent.style.display = "none";
+  errorMessage.style.display = "none";
+  purchaseRecord.style.display = "none";
+  salesRecord.style.display = "none";
+  vendorsRecord.style.display = "none";
+  recordTabcontent.style.display = "none";
+  profileTabcontent.style.display = "flex";
+});
+
 // different record sections purchase sales and vendors
 purchaseRecord.style.cursor = "pointer";
 purchaseRecord.addEventListener("click", () => {
