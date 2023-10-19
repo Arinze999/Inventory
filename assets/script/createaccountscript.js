@@ -9,6 +9,7 @@ var email = document.getElementById("e-mail");
 var passWord = document.getElementById("pass-word");
 var confirmPassword = document.getElementById("confirm-pass");
 var passWordStrent = document.getElementById("pass-strent");
+const toggleButton = document.getElementById("togglePassword");
 
 // user details array of objects
 let users = JSON.parse(localStorage.getItem("userRaw")) || new Array();
@@ -17,6 +18,21 @@ let regUsers = JSON.parse(localStorage.getItem("userRaw"));
 var usersCounter = () => {
   return users.length + 1;
 };
+
+toggleButton.addEventListener("click" , ()=> {
+  if (passWord.type === "password") {
+    passWord.type = "text";
+    toggleButton.querySelector("#hide-pass").style.display = "initial";
+    toggleButton.querySelector("#show-pass").style.display = "none";
+  } else {
+    passWord.type = "password";
+    toggleButton.querySelector("#hide-pass").style.display = "none";
+    toggleButton.querySelector("#show-pass").style.display = "initial";
+  }
+})
+
+
+
 
 // Variable to determine an existing user
 var test;
