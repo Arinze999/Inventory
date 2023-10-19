@@ -19,17 +19,19 @@ var usersCounter = () => {
   return users.length + 1;
 };
 
-toggleButton.addEventListener("click" , ()=> {
-  if (passWord.type === "password") {
-    passWord.type = "text";
-    toggleButton.querySelector("#hide-pass").style.display = "initial";
-    toggleButton.querySelector("#show-pass").style.display = "none";
-  } else {
-    passWord.type = "password";
-    toggleButton.querySelector("#hide-pass").style.display = "none";
-    toggleButton.querySelector("#show-pass").style.display = "initial";
-  }
-})
+if (toggleButton) {
+  toggleButton.addEventListener("click" , ()=> {
+    if (passWord.type === "password") {
+      passWord.type = "text";
+      toggleButton.querySelector("#hide-pass").style.display = "initial";
+      toggleButton.querySelector("#show-pass").style.display = "none";
+    } else {
+      passWord.type = "password";
+      toggleButton.querySelector("#hide-pass").style.display = "none";
+      toggleButton.querySelector("#show-pass").style.display = "initial";
+    }
+  })
+}
 
 
 
