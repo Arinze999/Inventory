@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Tilt+Neon&display=swap');
+
 body {
   color: white;
   padding: 0;
   margin: 0;
   background-repeat: no-repeat;
+  font-family: 'Poppins', sans-serif;
   background-size: cover;
   background-attachment: scroll;
   overflow-x: hidden;
@@ -132,7 +135,6 @@ ul {
 
 footer {
   background: linear-gradient(to bottom, rgb(8, 27, 43), rgb(55, 78, 100));
-  position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
@@ -169,7 +171,7 @@ footer {
 @media (max-width: 767px) {
   .home-list {
     margin-top: 1em;
-    display: none;
+    /* display: none; */
   }
   .banner {
     margin-top: 8em;
